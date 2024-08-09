@@ -1,0 +1,70 @@
+[
+  {
+    "id": "wamsix568",
+    "username": "Thomebekinha",
+    "email": "thom@mail.com",
+    "couple": {
+      "name": "",
+      "person1": {
+        "name": "Thomas",
+        "age": "",
+        "birthday": "",
+        "moodId": ""
+      },
+      "person2": {
+        "name": "Rebeka",
+        "age": "",
+        "birthday": "",
+        "moodId": ""
+      }
+    },
+    "beginAt": "27/01/2023",
+    "password": "25A1rst",
+    "photos": [
+      {
+        "filename": "1723230801395-uml.png",
+        "path": "C:\\Repos\\relationshipz\\server\\db\\photos\\1723230801395-uml.png",
+        "originalname": "uml.png",
+        "mimetype": "image/png",
+        "size": 49478,
+        "ownerId": "wamsix568"
+      },
+      {
+        "filename": "1723230804371-uml.png",
+        "path": "C:\\Repos\\relationshipz\\server\\db\\photos\\1723230804371-uml.png",
+        "originalname": "uml.png",
+        "mimetype": "image/png",
+        "size": 49478,
+        "ownerId": "wamsix568"
+      },
+      {
+        "filename": "1723230813425-uml.png",
+        "path": "C:\\Repos\\relationshipz\\server\\db\\photos\\1723230813425-uml.png",
+        "originalname": "uml.png",
+        "mimetype": "image/png",
+        "size": 49478,
+        "ownerId": "wamsix568"
+      },
+      {
+        "filename": "1723230817388-uml.png",
+        "path": "C:\\Repos\\relationshipz\\server\\db\\photos\\1723230817388-uml.png",
+        "originalname": "uml.png",
+        "mimetype": "image/png",
+        "size": 49478,
+        "ownerId": "wamsix568"
+      },
+      {
+        "filename": "1723230893337-uml.png",
+        "path": "C:\\Repos\\relationshipz\\server\\db\\photos\\1723230893337-uml.png",
+        "originalname": "uml.png",
+        "mimetype": "image/png",
+        "size": 49478,
+        "ownerId": "wamsix568"
+      }
+    ],
+    "goals": [],
+    "plan": "free",
+    "description": "",
+    "favoriteSong": ""
+  }
+]
