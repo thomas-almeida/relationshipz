@@ -25,12 +25,13 @@ async function createDescription(req, res) {
     const user = users.find(user => user.id === userId)
     user.description = coupleDescription
 
-    fs.readFileSync(dbPath, JSON.stringify(users, null, 2), 'utf-8')
+    fs.writeFileSync(dbPath, JSON.stringify(users, null, 2), 'utf-8')
 
     res.status(200).json({
       message: 'success',
       description: coupleDescription
     })
+
   } catch (error) {
 
     console.error(error)
@@ -42,11 +43,11 @@ async function createDescription(req, res) {
 }
 
 async function registerCouple(req, res) {
+
   try {
 
     let users = []
     const { userId, coupleId, name, age, birthday } = req.body
-
 
     const data = fs.readFileSync(dbPath, 'utf-8')
     users = data ? JSON.parse(data) : []
@@ -62,13 +63,15 @@ async function registerCouple(req, res) {
     const user = users.find(user => user.id === userId)
 
     if (coupleId === 0) {
-      user.couple?.persons[0] = {
+      user.couple.persons[0] = {
+        id: 0,
         name,
         age,
         birthday,
       }
     } else if (coupleId === 1) {
-      user.couple?.persons[1] = {
+      user.couple.persons[1] = {
+        id: 1,
         name,
         age,
         birthday,
