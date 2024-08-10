@@ -46,7 +46,7 @@ async function signUp(req, res) {
         },
         {
           id: 1,
-          name: firstPersonName,
+          name: secondPersonName,
           age: "",
           birthday: "",
           moodId: ""
