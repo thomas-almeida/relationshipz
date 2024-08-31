@@ -4,9 +4,37 @@ import cript from '../utils/decodes.js'
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import axios from 'axios'
+import * as cheerio from 'cheerio'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const dbPath = path.join(__dirname, '..', 'db', 'users.json')
+
+// Função para fazer o scraping da imagem de perfil do Instagram
+async function scrapeInstagramProfilePicture(instagramUrl) {
+  try {
+    // Faz a requisição HTTP para obter o HTML da página
+    const response = await axios.get(instagramUrl)
+    const html = response.data
+
+    // Carrega o HTML no Cheerio
+    const $ = cheerio.load(html)
+
+    // Seleciona a tag 'meta' que contém a imagem de perfil (Instagram usa meta tags)
+    const profilePicUrl = $('meta[property="og:image"]').attr('content');
+
+    if (profilePicUrl) {
+      const imagePath = path.basename(profilePicUrl)
+      return imagePath
+    }
+
+    return null
+
+  } catch (error) {
+    console.error('Error scraping Instagram:', error)
+    return null
+  }
+}
 
 async function signUp(req, res) {
 
@@ -14,7 +42,7 @@ async function signUp(req, res) {
 
   try {
 
-    const { firstPersonName, secondPersonName, email, username, password, beginAt } = req.body
+    const { firstPersonName, secondPersonName, firstPersonInstagram, secondPersonInstagram, email, description, password, beginAt } = req.body
 
     if (!fs.existsSync(dbPath)) {
       fs.writeFileSync(dbPath, '[]')
@@ -25,38 +53,45 @@ async function signUp(req, res) {
       users = data ? JSON.parse(data) : []
     }
 
-    const userExist = users.some(user => user.username === username || user.email === email)
+    const userExist = users.some(user => user.email === email)
 
     if (userExist) {
-      return res.status(409).json({ message: 'nome de usuario ou email ja existem!' })
+      return res.status(409).json({ message: 'Já existe um casal com esse email!' })
     }
 
     let encriptedPassword = cript.encrypt(password)
 
     const id = generateId.generateExtenseId(users)
+
+    const firstPersonProfilePic = await scrapeInstagramProfilePicture(firstPersonInstagram)
+    const secondPersonProfilePic = await scrapeInstagramProfilePicture(secondPersonInstagram)
+
     const coupleObj = {
-      name: "",
+      name: `${firstPersonName} & ${secondPersonName}`,
       persons: [
         {
           id: 0,
           name: firstPersonName,
           age: "",
           birthday: "",
-          moodId: ""
+          moodId: "",
+          instagram: firstPersonInstagram,
+          profilePic: firstPersonProfilePic
         },
         {
           id: 1,
           name: secondPersonName,
           age: "",
           birthday: "",
-          moodId: ""
+          moodId: "",
+          instagram: secondPersonInstagram,
+          profilePic: secondPersonProfilePic
         },
       ]
     }
 
     const newUser = {
       id,
-      username,
       email,
       couple: coupleObj,
       beginAt,
@@ -64,13 +99,13 @@ async function signUp(req, res) {
       photos: [],
       goals: [],
       plan: 'free',
-      description: '',
+      description,
       favoriteSong: ''
     }
 
     users.push(newUser)
     fs.writeFileSync(dbPath, JSON.stringify(users, null, 2))
-    console.log(`user [${id}]${username} has been registered`)
+    console.log(`Couple [${id}]${coupleObj.name} has been registered`)
     return res.status(201).json(newUser)
 
   } catch (error) {
