@@ -51,7 +51,7 @@ export default function ExibitionPage({
           {`${userData?.couple?.persons[0].name} & ${userData?.couple?.persons[1].name}`}
         </p>
       </div>
-      <h1 className="text-5xl font-semibold py-8">
+      <h1 className="text-5xl italic font-bold py-8">
         {`${userData?.description}`}
       </h1>
       <p className="text-lg font-medium">Juntos á</p>
@@ -71,15 +71,15 @@ export default function ExibitionPage({
         {
           userData?.photos?.map((photo, index) => (
             <img
-              key={photo.id}
-              className={`absolute shadow-md shadow-[#00000089] rounded-md transition-all duration-300 ease-in-out w-[50%] ${
+              key={photo.driveId}
+              className={`absolute shadow-lg shadow-[#000000b3] rounded-md transition-all duration-300 ease-in-out w-[50%] hover:scale-[1.2] hover:z-[9999] ${
                 index === 0 ? 'top-[-120px] left-[40%]' :
                 index === 1 ? 'top-[-55px] left-[0%] h-[260px] object-cover' :
                 index === 2 ? 'top-[40px] left-[50%]' :
                 index === 3 ? 'top-[195px] left-[15%]' :
                 'top-[180px] left-[45%] h-[180px] object-cover'
               }`}
-              src={`${baseUrl.localUrl}/photos/${photo.filename}`}
+              src={`${photo.directLink}`}
             >
             </img>
           ))

@@ -29,40 +29,55 @@
     "password": "rstsrt",
     "photos": [
       {
-        "filename": "1725121550803-AAA.png",
-        "path": "C:\\Repos\\relationshipz\\server\\db\\photos\\1725121550803-AAA.png",
-        "originalname": "AAA.png",
-        "mimetype": "image/png",
-        "size": 415676,
-        "ownerId": "dvltxo714"
-      },
-      {
-        "filename": "1725123953381-IMG-20240728-WA0092.jpg",
-        "path": "C:\\Repos\\relationshipz\\server\\db\\photos\\1725123953381-IMG-20240728-WA0092.jpg",
-        "originalname": "IMG-20240728-WA0092.jpg",
-        "mimetype": "image/jpeg",
-        "size": 74133,
-        "ownerId": "dvltxo714"
-      },
-      {
-        "filename": "1725123984141-IMG-20240623-WA0026.jpg",
-        "path": "C:\\Repos\\relationshipz\\server\\db\\photos\\1725123984141-IMG-20240623-WA0026.jpg",
+        "filename": "IMG-20240623-WA0026.jpg",
+        "driveId": "1aykf0b3LJD33SFHVxj-66Zo65bms2t33",
+        "directLink": "https://drive.google.com/thumbnail?id=1aykf0b3LJD33SFHVxj-66Zo65bms2t33",
+        "webViewLink": "https://drive.google.com/file/d/1aykf0b3LJD33SFHVxj-66Zo65bms2t33/view?usp=drivesdk",
+        "webContentLink": "https://drive.google.com/uc?id=1aykf0b3LJD33SFHVxj-66Zo65bms2t33&export=download",
         "originalname": "IMG-20240623-WA0026.jpg",
         "mimetype": "image/jpeg",
         "size": 88595,
         "ownerId": "dvltxo714"
       },
       {
-        "filename": "1725123994463-IMG-20240701-WA0154.jpg",
-        "path": "C:\\Repos\\relationshipz\\server\\db\\photos\\1725123994463-IMG-20240701-WA0154.jpg",
+        "filename": "IMG-20240728-WA0092.jpg",
+        "driveId": "1CVfIQwTCo-0bkb8IX3IWANaxBKi1rJS-",
+        "directLink": "https://drive.google.com/thumbnail?id=1CVfIQwTCo-0bkb8IX3IWANaxBKi1rJS-",
+        "webViewLink": "https://drive.google.com/file/d/1CVfIQwTCo-0bkb8IX3IWANaxBKi1rJS-/view?usp=drivesdk",
+        "webContentLink": "https://drive.google.com/uc?id=1CVfIQwTCo-0bkb8IX3IWANaxBKi1rJS-&export=download",
+        "originalname": "IMG-20240728-WA0092.jpg",
+        "mimetype": "image/jpeg",
+        "size": 74133,
+        "ownerId": "dvltxo714"
+      },
+      {
+        "filename": "AAA.png",
+        "driveId": "1dDncIV8ziqxahwSgzpmyxE5rKljxB-N6",
+        "directLink": "https://drive.google.com/thumbnail?id=1dDncIV8ziqxahwSgzpmyxE5rKljxB-N6",
+        "webViewLink": "https://drive.google.com/file/d/1dDncIV8ziqxahwSgzpmyxE5rKljxB-N6/view?usp=drivesdk",
+        "webContentLink": "https://drive.google.com/uc?id=1dDncIV8ziqxahwSgzpmyxE5rKljxB-N6&export=download",
+        "originalname": "AAA.png",
+        "mimetype": "image/png",
+        "size": 415676,
+        "ownerId": "dvltxo714"
+      },
+      {
+        "filename": "IMG-20240701-WA0154.jpg",
+        "driveId": "1TTscjAmSgWk1zeYbhO1NEZkDFDYPKlDc",
+        "directLink": "https://drive.google.com/thumbnail?id=1TTscjAmSgWk1zeYbhO1NEZkDFDYPKlDc",
+        "webViewLink": "https://drive.google.com/file/d/1TTscjAmSgWk1zeYbhO1NEZkDFDYPKlDc/view?usp=drivesdk",
+        "webContentLink": "https://drive.google.com/uc?id=1TTscjAmSgWk1zeYbhO1NEZkDFDYPKlDc&export=download",
         "originalname": "IMG-20240701-WA0154.jpg",
         "mimetype": "image/jpeg",
         "size": 184248,
         "ownerId": "dvltxo714"
       },
       {
-        "filename": "1725127074751-IMG-20240107-WA0023~2.jpg",
-        "path": "C:\\Repos\\relationshipz\\server\\db\\photos\\1725127074751-IMG-20240107-WA0023~2.jpg",
+        "filename": "IMG-20240107-WA0023~2.jpg",
+        "driveId": "1wxrUuwUvdf2_2TyL0fCUDRR7qN0T1U_U",
+        "directLink": "https://drive.google.com/thumbnail?id=1wxrUuwUvdf2_2TyL0fCUDRR7qN0T1U_U",
+        "webViewLink": "https://drive.google.com/file/d/1wxrUuwUvdf2_2TyL0fCUDRR7qN0T1U_U/view?usp=drivesdk",
+        "webContentLink": "https://drive.google.com/uc?id=1wxrUuwUvdf2_2TyL0fCUDRR7qN0T1U_U&export=download",
         "originalname": "IMG-20240107-WA0023~2.jpg",
         "mimetype": "image/jpeg",
         "size": 110484,
