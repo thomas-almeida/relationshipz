@@ -1,20 +1,20 @@
 import { NavLink, useNavigate } from "react-router-dom"
 import axios from "axios"
 import { useState } from "react"
+import baseUrl from "../utils/baseUrl"
 
 export default function SignIn() {
 
     const redirect = useNavigate()
 
-    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
     const userPayload = {
-        username: username,
+        email: email,
         password: password
     }
 
-    const serverEndpoint = 'http://localhost:3003'
     const [alertInfo, setAlertInfo] = useState('')
 
     async function signInUser(event) {
@@ -23,7 +23,7 @@ export default function SignIn() {
 
         try {
 
-            const response = await axios.post(`${serverEndpoint}/users/sign-in`, userPayload)
+            const response = await axios.post(`${baseUrl.productionUrl}/users/sign-in`, userPayload)
             console.log(response.data.user)
             redirect(`/home?id=${response.data.user?.id}`)
 
@@ -48,8 +48,8 @@ export default function SignIn() {
                                 type="text"
                                 className="border w-[100%] my-2 p-2 rounded-sm"
                                 placeholder="Nome de Usuário"
-                                value={username}
-                                onChange={(e) => setUsername(e.target.value)}
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 required
                             />
                             <input
