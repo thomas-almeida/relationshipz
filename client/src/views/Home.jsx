@@ -9,7 +9,7 @@ export default function Home() {
         async function getUserData() {
             let url = window.location
             let userId = new URLSearchParams(url.search).get('id')
-            const response = await axios.get(`${baseUrl.localUrl}/users/get-user-by-id/${userId}`, {
+            const response = await axios.get(`${baseUrl.productionUrl}/users/get-user-by-id/${userId}`, {
                 headers: {
                     "ngrok-skip-browser-warning": "true"
                 }
