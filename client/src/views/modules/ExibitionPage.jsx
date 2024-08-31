@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import baseUrl from "../../utils/baseUrl"
+import LazyLoad from 'react-lazyload'
 
 export default function ExibitionPage({
   visible,
@@ -70,18 +71,19 @@ export default function ExibitionPage({
 
         {
           userData?.photos?.map((photo, index) => (
-            <img
-              key={photo.driveId}
-              className={`absolute shadow-lg shadow-[#000000b3] rounded-md transition-all duration-300 ease-in-out w-[50%] hover:scale-[1.2] hover:z-[9999] ${
-                index === 0 ? 'top-[-120px] left-[40%]' :
-                index === 1 ? 'top-[-55px] left-[0%] h-[260px] object-cover' :
-                index === 2 ? 'top-[40px] left-[50%]' :
-                index === 3 ? 'top-[195px] left-[15%]' :
-                'top-[180px] left-[45%] h-[180px] object-cover'
-              }`}
-              src={`${photo.directLink}`}
-            >
-            </img>
+            <LazyLoad once>
+              <img
+                key={photo.driveId}
+                className={`absolute shadow-lg shadow-[#000000b3] rounded-md transition-all duration-300 ease-in-out w-[50%] hover:scale-[1.2] hover:z-[9999] ${index === 0 ? 'top-[-120px] left-[40%]' :
+                    index === 1 ? 'top-[-55px] left-[0%] h-[260px] object-cover' :
+                      index === 2 ? 'top-[40px] left-[50%]' :
+                        index === 3 ? 'top-[195px] left-[15%]' :
+                          'top-[180px] left-[45%] h-[180px] object-cover'
+                  }`}
+                src={`${photo.directLink}`}
+              >
+              </img>
+            </LazyLoad>
           ))
         }
 
