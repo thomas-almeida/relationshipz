@@ -47,7 +47,7 @@ export default function SignIn() {
                             <input
                                 type="text"
                                 className="border w-[100%] my-2 p-2 rounded-sm"
-                                placeholder="Nome de Usuário"
+                                placeholder="Email Cadastrado"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
