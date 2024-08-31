@@ -121,7 +121,7 @@ async function signIn(req, res) {
   let users = []
 
   try {
-    const { username, password } = req.body
+    const { email, password } = req.body
 
     if (fs.existsSync(dbPath)) {
       const data = fs.readFileSync(dbPath, 'utf-8')
@@ -130,16 +130,16 @@ async function signIn(req, res) {
 
     let encriptedPassword = cript.encrypt(password)
 
-    const userRegistered = users.find(user => user.username === username && user.password === encriptedPassword)
+    const userRegistered = users.find(user => user.email === email && user.password === encriptedPassword)
 
     if (userRegistered) {
-      console.log(`user [${userRegistered.id}]${userRegistered.username} has logged in`)
+      console.log(`user [${userRegistered.id}]${userRegistered.email} has logged in`)
       return res.status(200).json({
         message: 'success',
         user: userRegistered
       })
     } else {
-      return res.status(401).json({ message: 'username or password do not match' })
+      return res.status(401).json({ message: 'Email or password do not match' })
     }
 
   } catch (error) {
