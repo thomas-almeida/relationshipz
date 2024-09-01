@@ -7,8 +7,7 @@ export default function Home() {
 
     useEffect(() => {
         async function getUserData() {
-            let url = window.location
-            let userId = new URLSearchParams(url.search).get('id')
+            let userId = localStorage.getItem('userID')
             const response = await axios.get(`${baseUrl.productionUrl}/users/get-user-by-id/${userId}`, {
                 headers: {
                     "ngrok-skip-browser-warning": "true"
@@ -23,7 +22,7 @@ export default function Home() {
     }, [])
 
     const [userData, setUserData] = useState()
-    const [activeScreen, setActiveScreen] = useState('exibition')
+    const [activeScreen, setActiveScreen] = useState('settings')
 
     return (
         <>
