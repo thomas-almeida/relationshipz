@@ -1,6 +1,7 @@
 import { useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
+import baseUrl from "../utils/baseUrl"
 
 
 export default function SignUp() {
@@ -31,7 +32,6 @@ export default function SignUp() {
     }
 
     const [alertInfo, setAlertInfo] = useState('')
-    const serverEndpoint = 'http://localhost:3003'
 
     // create User
     async function createUser(event) {
@@ -39,9 +39,10 @@ export default function SignUp() {
         event.preventDefault()
 
         try {
-            console.log(userPayload)
-            const response = await axios.post(`${serverEndpoint}/users/sign-up`, userPayload)
-            redirect(`/home?id=${response.data.id}`)
+            const response = await axios.post(`${baseUrl.productionUrl}/users/sign-up`, userPayload)
+            localStorage.setItem('userID', response.data.user?.id)
+            localStorage.setItem('userLogged', 'true')
+            redirect(`/home?settings`)
 
         } catch (error) {
 

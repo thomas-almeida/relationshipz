@@ -24,8 +24,9 @@ export default function SignIn() {
         try {
 
             const response = await axios.post(`${baseUrl.productionUrl}/users/sign-in`, userPayload)
-            console.log(response.data.user)
-            redirect(`/home?id=${response.data.user?.id}`)
+            localStorage.setItem('userID', response.data.user?.id)
+            localStorage.setItem('userLogged', 'true')
+            redirect(`/home?settings`)
 
         } catch (error) {
             console.error(error)
