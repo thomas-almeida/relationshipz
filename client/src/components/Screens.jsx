@@ -1,3 +1,6 @@
+
+/* eslint-disable react/prop-types */
+
 import ExibitionPage from "../views/modules/ExibitionPage";
 import Settings from "../views/modules/Settings";
 
@@ -5,6 +8,7 @@ export default function Screens({
   activeScreen,
   setActiveScreen,
   userData,
+  refreshUserData
 
 }) {
   return (
@@ -23,6 +27,7 @@ export default function Screens({
           visible={true}
           setActiveScreen={setActiveScreen}
           userData={userData}
+          refreshUserData={refreshUserData}
         />
       }
     </>

@@ -5,24 +5,24 @@ import baseUrl from "../utils/baseUrl"
 
 export default function Home() {
 
-    useEffect(() => {
-        async function getUserData() {
-            let userId = localStorage.getItem('userID')
-            const response = await axios.get(`${baseUrl.productionUrl}/users/get-user-by-id/${userId}`, {
-                headers: {
-                    "ngrok-skip-browser-warning": "true"
-                }
-            })
-
-            setUserData(response.data?.user)
-        }
-
-        getUserData()
-
-    }, [])
-
     const [userData, setUserData] = useState()
     const [activeScreen, setActiveScreen] = useState('settings')
+
+    async function getUserData() {
+        let userId = localStorage.getItem('userID')
+        const response = await axios.get(`${baseUrl.productionUrl}/users/get-user-by-id/${userId}`, {
+            headers: {
+                "ngrok-skip-browser-warning": "true"
+            }
+        })
+
+        setUserData(response.data?.user)
+    }
+
+    useEffect(() => {
+        getUserData()
+    }, [])
+
 
     return (
         <>
@@ -31,6 +31,7 @@ export default function Home() {
                     setActiveScreen={setActiveScreen}
                     activeScreen={activeScreen}
                     userData={userData}
+                    refreshUserData={getUserData}
                 />
             </div>
         </>
