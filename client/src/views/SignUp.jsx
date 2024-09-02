@@ -59,7 +59,7 @@ export default function SignUp() {
             <div className="flex justify-center items-center py-10 overflow-y-auto">
                 <div className="w-[85%]">
                     <div className="text-center">
-                        <h1>SignUp</h1>
+                        <h1 className="text-black text-center mb-4">Goals 💕</h1>
                         <p>Registre-se</p>
                     </div>
                     <div className="mt-5">

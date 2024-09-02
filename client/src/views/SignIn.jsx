@@ -40,7 +40,7 @@ export default function SignIn() {
             <div className="flex justify-center items-center h-screen">
                 <div className="w-[85%]">
                     <div className="text-center">
-                        <h1>Sign In</h1>
+                        <h1 className="text-black text-center mb-4">Goals 💕</h1>
                         <p>Entrar</p>
                     </div>
                     <div className="mt-5">
