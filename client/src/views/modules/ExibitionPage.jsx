@@ -4,6 +4,7 @@
 import { useEffect, useState } from "react"
 import baseUrl from "../../utils/baseUrl"
 import LazyLoad from 'react-lazyload'
+import { useNavigate } from "react-router-dom"
 
 export default function ExibitionPage({
   visible,
@@ -76,7 +77,7 @@ export default function ExibitionPage({
           userData?.photos?.map((photo, index) => (
             <LazyLoad once>
               <img
-                key={photo.driveId}
+                key={index}
                 className={`absolute shadow-lg shadow-[#000000b3] rounded-md transition-all duration-300 ease-in-out w-[50%] hover:scale-[1.2] hover:z-[9999] ${index === 0 ? 'top-[-120px] left-[40%]' :
                   index === 1 ? 'top-[-55px] left-[0%] h-[260px] object-cover' :
                     index === 2 ? 'top-[40px] left-[50%]' :

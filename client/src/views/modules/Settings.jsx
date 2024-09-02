@@ -2,9 +2,10 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import baseUrl from "../../utils/baseUrl"
 import axios from 'axios'
-import { NavLink } from "react-router-dom"
+
 
 export default function Settings({
   visible,
@@ -15,6 +16,7 @@ export default function Settings({
 
   const [userMessage, setMessage] = useState('')
   const [userBeginAt, setBeginAt] = useState('')
+  const redirect = useNavigate()
 
   useEffect(() => {
     setMessage(userData?.description)
@@ -66,7 +68,9 @@ export default function Settings({
   }
 
   function goToSite() {
+    redirect(`/home?id=${userData?.id}`)
     setActiveScreen('exibition')
+
   }
 
   return (
