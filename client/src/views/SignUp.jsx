@@ -40,7 +40,7 @@ export default function SignUp() {
 
         try {
             const response = await axios.post(`${baseUrl.productionUrl}/users/sign-up`, userPayload)
-            localStorage.setItem('userID', response.data.user?.id)
+            localStorage.setItem('userID', response.data?.id)
             localStorage.setItem('userLogged', 'true')
             redirect(`/home?settings`)
 

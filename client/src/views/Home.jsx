@@ -9,14 +9,16 @@ export default function Home() {
     const [activeScreen, setActiveScreen] = useState('settings')
 
     async function getUserData() {
-        let userId = localStorage.getItem('userID')
-        const response = await axios.get(`${baseUrl.productionUrl}/users/get-user-by-id/${userId}`, {
-            headers: {
-                "ngrok-skip-browser-warning": "true"
-            }
-        })
+        if (localStorage.getItem('userID') !== 'undefined') {
+            let userId = localStorage.getItem('userID')
+            const response = await axios.get(`${baseUrl.productionUrl}/users/get-user-by-id/${userId}`, {
+                headers: {
+                    "ngrok-skip-browser-warning": "true"
+                }
+            })
 
-        setUserData(response.data?.user)
+            setUserData(response.data?.user)
+        }
     }
 
     useEffect(() => {
