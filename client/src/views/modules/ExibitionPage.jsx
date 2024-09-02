@@ -94,12 +94,12 @@ export default function ExibitionPage({
 
       {
         localStorage.getItem('userLogged') && (
-          <div className="mt-6">
+          <div className="mt-6 absolute top-0 left-[20px]">
             <button
-              className="px-4 py-2 rounded-sm text-lg border-2 cursor-pointer"
+              className="px-4 py-2 rounded-md text-lg border-2 cursor-pointer"
               onClick={() => setActiveScreen('settings')}
             >
-              Voltar ás configurações
+              Voltar
             </button>
           </div>
         )
