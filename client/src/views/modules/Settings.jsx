@@ -19,6 +19,16 @@ export default function Settings({
   const redirect = useNavigate()
 
   useEffect(() => {
+    function checkLogged() {
+      if (localStorage.getItem('userLogged') !== 'true') {
+        redirect('/')
+      }
+    }
+
+    checkLogged()
+  }, [])
+
+  useEffect(() => {
     setMessage(userData?.description)
     setBeginAt(userData?.beginAt)
   }, [userData?.beginAt, userData?.description])
