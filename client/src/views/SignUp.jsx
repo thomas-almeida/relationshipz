@@ -142,7 +142,6 @@ export default function SignUp() {
                             />
 
                             <p className="text-center mt-4">
-                                Ainda não tem o site de voces?,
                                 <NavLink to={"/"}>
                                     <b className="font-semibold text-purple-600"> Já tenho conta!</b>
                                 </NavLink>
