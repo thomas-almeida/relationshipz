@@ -9,6 +9,7 @@ const api = Router()
 api.post('/users/sign-up', userController.signUp)
 api.post('/users/sign-in', userController.signIn)
 api.get('/users/get-user-by-id/:id', userController.getUserById)
+api.post('/users/save-settings', userController.saveSettings)
 
 //upload
 api.post('/users/upload-photo', upload.single('file'), uploadPhoto)

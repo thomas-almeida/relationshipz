@@ -175,9 +175,44 @@ async function getUserById(req, res) {
   }
 }
 
+async function saveSettings(req, res) {
+
+  let users = []
+
+    const data = fs.readFileSync(dbPath, 'utf-8')
+    users = data ? JSON.parse(data) : []
+
+    try {
+      const {userId, newMessage, newBeginAt} = req.body
+      const userExist = users.some(user => user.id === userId)
+
+      if (!userExist) {
+        res.status(401).json({ message: 'user not found' })
+      }
+  
+      const user = users.find(user => user.id === userId)
+      user.description = newMessage
+      user.beginAt = newBeginAt
+
+      fs.writeFileSync(dbPath, JSON.stringify(users, null, 2))
+      console.log(`Couple [${userId}] Change message to ${newMessage} & begin date to ${newBeginAt}`)
+      return res.status(201).json({
+        message: 'success',
+        newMessage: newMessage,
+        newBeginAt: newBeginAt
+      })
+
+    } catch (error) {
+      res.status(500).json({
+        message: 'internal server error'
+      })
+      console.error(error)
+    }
+}
 
 export default {
   signIn,
   signUp,
-  getUserById
+  getUserById,
+  saveSettings
 }
