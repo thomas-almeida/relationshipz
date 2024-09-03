@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { NavLink, useNavigate } from "react-router-dom"
 import axios from "axios"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import baseUrl from "../utils/baseUrl"
 
 export default function SignIn() {
@@ -16,6 +17,12 @@ export default function SignIn() {
     }
 
     const [alertInfo, setAlertInfo] = useState('')
+
+    useEffect(() => {
+        if (localStorage.getItem('userLogged')) {
+            redirect('/home?settings')
+        }
+    }, [])
 
     async function signInUser(event) {
 

@@ -68,75 +68,80 @@ export default function ExibitionPage({
   })
 
   return (
-    <div className="text-center">
 
-      <p className="mt-6">Feito com <b className="font-semibold">Goals 💕</b></p>
+    <div className="flex justify-center items-center">
+      <div className="text-center w-[95%]">
 
-      <div className="pt-12">
-        <div className="flex justify-center items-center relative right-[5px]">
-          <img
-            src={`${baseUrl.profielPicPrefix}${userData?.couple?.persons[0].profilePic}`}
-            className="bg-gray-500 w-[60px] h-[60px] rounded-full relative left-[15px] shadow-xl"
-          />
-          <img
-            src={`${baseUrl.profielPicPrefix}${userData?.couple?.persons[1].profilePic}`}
-            className="bg-gray-500 w-[60px] h-[60px] rounded-full shadow-xl"
-          />
+        <p className="mt-6">Feito com <b className="font-semibold">Goals 💕</b></p>
+
+        <div className="pt-12">
+          <div className="flex justify-center items-center relative right-[5px]">
+            <img
+              src={`${baseUrl.profielPicPrefix}${userData?.couple?.persons[0].profilePic}`}
+              className="bg-gray-500 w-[60px] h-[60px] rounded-full relative left-[15px] shadow-xl"
+            />
+            <img
+              src={`${baseUrl.profielPicPrefix}${userData?.couple?.persons[1].profilePic}`}
+              className="bg-gray-500 w-[60px] h-[60px] rounded-full shadow-xl"
+            />
+          </div>
+          <p className="font-medium pt-2">
+            {`${userData?.couple?.persons[0].name} & ${userData?.couple?.persons[1].name}`}
+          </p>
         </div>
-        <p className="font-medium pt-2">
-          {`${userData?.couple?.persons[0].name} & ${userData?.couple?.persons[1].name}`}
-        </p>
-      </div>
-      <h1 className="text-5xl italic font-bold py-8">
-        {`${userData?.description}`}
-      </h1>
-      <p className="text-lg font-medium">Juntos á</p>
-      <p className="font-bold italic text-xl">{coupleHistory}</p>
+        <h1 className="text-5xl italic font-bold py-8">
+          {`${userData?.description}`}
+        </h1>
+        <p className="text-lg font-medium">Juntos á</p>
+        <p className="font-bold italic text-xl">{coupleHistory}</p>
 
-      <div className="mt-[50%] p-4 relative">
+        <div className="mt-[50%] p-4 relative">
+
+          {
+            userData?.photos?.length <= 0 && (
+              <div className="flex justify-center items-center">
+                <p className="border-2 px-2 w-[160px] rounded-md bg-gray-100">Sem fotos ainda</p>
+              </div>
+            )
+          }
+
+
+          {
+            userData?.photos?.map((photo, index) => (
+              <LazyLoad once>
+                <img
+                  key={index}
+                  className={`absolute shadow-lg shadow-[#000000b3] rounded-md transition-all duration-300 ease-in-out w-[50%] hover:scale-[1.2] hover:z-[9999] ${index === 0 ? 'top-[-120px] left-[40%]' :
+                    index === 1 ? 'top-[-55px] left-[0%] h-[260px] object-cover' :
+                      index === 2 ? 'top-[40px] left-[50%]' :
+                        index === 3 ? 'top-[195px] left-[15%]' :
+                          'top-[180px] left-[45%] h-[180px] object-cover'
+                    }`}
+                  src={`${photo.directLink}`}
+                >
+                </img>
+              </LazyLoad>
+            ))
+          }
+
+        </div>
 
         {
-          userData?.photos?.length <= 0 && (
-            <div className="flex justify-center items-center">
-              <p className="border-2 px-2 w-[160px] rounded-md bg-gray-100">Sem fotos ainda</p>
+          localStorage.getItem('userLogged') && (
+            <div className="mt-6 absolute top-0 left-[20px]">
+              <button
+                className="px-2 py-1 rounded-md shadow-sm text-md border-2 cursor-pointer"
+                onClick={() => redirect('/home?settings')}
+              >
+                Voltar
+              </button>
             </div>
           )
         }
 
-
-        {
-          userData?.photos?.map((photo, index) => (
-            <LazyLoad once>
-              <img
-                key={index}
-                className={`absolute shadow-lg shadow-[#000000b3] rounded-md transition-all duration-300 ease-in-out w-[50%] hover:scale-[1.2] hover:z-[9999] ${index === 0 ? 'top-[-120px] left-[40%]' :
-                  index === 1 ? 'top-[-55px] left-[0%] h-[260px] object-cover' :
-                    index === 2 ? 'top-[40px] left-[50%]' :
-                      index === 3 ? 'top-[195px] left-[15%]' :
-                        'top-[180px] left-[45%] h-[180px] object-cover'
-                  }`}
-                src={`${photo.directLink}`}
-              >
-              </img>
-            </LazyLoad>
-          ))
-        }
-
       </div>
-
-      {
-        localStorage.getItem('userLogged') && (
-          <div className="mt-6 absolute top-0 left-[20px]">
-            <button
-              className="px-2 py-1 rounded-md shadow-sm text-md border-2 cursor-pointer"
-              onClick={() => redirect('/home?settings')}
-            >
-              Voltar
-            </button>
-          </div>
-        )
-      }
-
     </div>
+
+
   )
 }

@@ -85,7 +85,7 @@ export default function SignUp() {
                             <input
                                 type="text"
                                 className="border w-[100%] my-2 p-2 rounded-sm text-lg"
-                                placeholder="@ do instagram"
+                                placeholder="Instagram sem @"
                                 value={firstPersonInstagram}
                                 onChange={(e) => setFirstPersonInstagram(e.target.value)}
                                 required
@@ -102,7 +102,7 @@ export default function SignUp() {
                             <input
                                 type="text"
                                 className="border w-[100%] my-2 p-2 rounded-sm text-lg"
-                                placeholder="@ do instagram"
+                                placeholder="Instagram sem @"
                                 value={secondPersonInstagram}
                                 onChange={(e) => setSecondPersonInstagram(e.target.value)}
                                 required
