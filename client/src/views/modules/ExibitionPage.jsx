@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/jsx-key */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
@@ -5,14 +6,41 @@ import { useEffect, useState } from "react"
 import baseUrl from "../../utils/baseUrl"
 import LazyLoad from 'react-lazyload'
 import { useNavigate } from "react-router-dom"
+import axios from "axios"
 
 export default function ExibitionPage({
   visible,
   setActiveScreen,
-  userData
 }) {
 
   const [coupleHistory, setCoupleHistory] = useState()
+  const [userData, setUserData] = useState('')
+  const redirect = useNavigate()
+
+  useEffect(() => {
+
+    const url = window.location.search
+    const urlParams = new URLSearchParams(url)
+
+    async function getUserData() {
+      if (url.includes('?id')) {
+        try {
+          const response = await axios.get(`${baseUrl.productionUrl}/users/get-user-by-id/${urlParams.get('id')}`, {
+            headers: {
+              "ngrok-skip-browser-warning": "true"
+            }
+          })
+
+          setUserData(response.data.user)
+        } catch (error) {
+          console.error(error)
+          redirect('/')
+        }
+      }
+    }
+
+    getUserData()
+  }, [])
 
   useEffect(() => {
     async function calculateTogheterTime(timestamp) {
@@ -40,8 +68,11 @@ export default function ExibitionPage({
   })
 
   return (
-    <div className="text-center w-[85%]">
-      <div className="pt-8">
+    <div className="text-center">
+
+      <p className="mt-6">Feito com <b className="font-semibold">Goals 💕</b></p>
+
+      <div className="pt-12">
         <div className="flex justify-center items-center relative right-[5px]">
           <img
             src={`${baseUrl.profielPicPrefix}${userData?.couple?.persons[0].profilePic}`}
@@ -97,8 +128,8 @@ export default function ExibitionPage({
         localStorage.getItem('userLogged') && (
           <div className="mt-6 absolute top-0 left-[20px]">
             <button
-              className="px-4 py-2 rounded-md text-lg border-2 cursor-pointer"
-              onClick={() => setActiveScreen('settings')}
+              className="px-2 py-1 rounded-md shadow-sm text-md border-2 cursor-pointer"
+              onClick={() => redirect('/home?settings')}
             >
               Voltar
             </button>

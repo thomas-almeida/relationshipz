@@ -78,9 +78,7 @@ export default function Settings({
   }
 
   function goToSite() {
-    redirect(`/home?id=${userData?.id}`)
-    setActiveScreen('exibition')
-
+    redirect(`/goals?id=${userData?.id}`)
   }
 
   return (
