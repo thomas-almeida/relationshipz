@@ -69,7 +69,7 @@ export default function ExibitionPage({
 
   return (
 
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center bg-white">
       <div className="text-center w-[95%]">
 
         <p className="mt-6">Feito com <b className="font-semibold">Goals 💕</b></p>

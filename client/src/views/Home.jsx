@@ -28,7 +28,7 @@ export default function Home() {
 
     return (
         <>
-            <div className="flex justify-center items-center py-[30px]">
+            <div className="flex justify-center items-center py-[30px] bg-slate-50">
                 <Screens
                     setActiveScreen={setActiveScreen}
                     activeScreen={activeScreen}

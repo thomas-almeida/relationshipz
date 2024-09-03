@@ -84,7 +84,7 @@ export default function Settings({
   return (
     <>
 
-      <div className="w-[95%]">
+      <div className="w-[85%]">
         <h1 className="text-black text-center">Goals 💕</h1>
 
         <div className="flex justify-start pt-10">
@@ -103,13 +103,13 @@ export default function Settings({
           </p>
         </div>
 
-        <div className="mt-10 border-2 p-1 rounded-md">
+        <div className="mt-10 p-1 rounded-md">
 
           <div className="flex justify-start items-center">
             <p className="font-medium pr-2 text-xl">
               Fotos
             </p>
-            <p className="font-medium text-xl w-[30px] text-center rounded-md border-2 shadow-sm">
+            <p className="font-medium text-xl w-[30px] text-center rounded-md border-2 shadow-sm bg-white">
               {userData?.photos?.length}
             </p>
           </div>
@@ -152,7 +152,7 @@ export default function Settings({
 
         </div>
 
-        <div className="mt-6 border-2 p-1 rounded-md px-4">
+        <div className="mt-6 border-2 py-2 rounded-md px-4 bg-white">
           <p className="font-medium pr-2 text-xl">
             Mensagem Principal
           </p>
@@ -164,7 +164,7 @@ export default function Settings({
           />
         </div>
 
-        <div className="mt-4 border-2 p-1 rounded-md px-4">
+        <div className="mt-4 border-2 py-2 rounded-md px-4 bg-white">
           <p className="font-medium pr-2 text-xl">
             Início do Namoro
           </p>
@@ -172,7 +172,7 @@ export default function Settings({
             type="date"
             value={userBeginAt}
             onChange={(e) => setBeginAt(e.target.value)}
-            className="outline-none text-xl pt-4 font-semibold w-[100%]"
+            className="outline-none text-xl pt-4 font-semibold w-[100%] bg-white"
           />
         </div>
 
