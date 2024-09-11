@@ -30,7 +30,7 @@ export default function SignIn() {
 
         try {
 
-            const response = await axios.post(`${baseUrl.productionUrl}/users/sign-in`, userPayload)
+            const response = await axios.post(`${baseUrl.localUrl}/users/sign-in`, userPayload)
             localStorage.setItem('userID', response.data.user?.id)
             localStorage.setItem('userLogged', 'true')
             redirect(`/home?settings`)
@@ -47,15 +47,15 @@ export default function SignIn() {
             <div className="flex justify-center items-center h-screen">
                 <div className="w-[85%]">
                     <div className="text-center">
-                        <h1 className="text-black text-center mb-4">Goals 💕</h1>
-                        <p>Entrar</p>
+                        <h1 className="text-black text-center mb-4 font-semibold">GOALS</h1>
+                        <h2 className="text-2xl font-semibold py-2">O Site do Seu Relacionamento!</h2>
                     </div>
                     <div className="mt-5">
                         <form className="" onSubmit={signInUser}>
                             <input
                                 type="text"
                                 className="border w-[100%] my-2 p-2 rounded-sm"
-                                placeholder="Email Cadastrado"
+                                placeholder="Seu Email Cadastrado"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
@@ -63,7 +63,7 @@ export default function SignIn() {
                             <input
                                 type="password"
                                 className="border w-[100%] my-2 p-2 rounded-sm"
-                                placeholder="Escolha uma senha"
+                                placeholder="Insira Sua Senha"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 required

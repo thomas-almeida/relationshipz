@@ -45,7 +45,7 @@ export default function Settings({
 
     try {
 
-      await axios.post(`${baseUrl.productionUrl}/users/upload-photo`, formData, {
+      await axios.post(`${baseUrl.localUrl}/users/upload-photo`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         }
@@ -69,7 +69,7 @@ export default function Settings({
     }
 
     try {
-      await axios.post(`${baseUrl.productionUrl}/users/save-settings`, payload)
+      await axios.post(`${baseUrl.localUrl}/users/save-settings`, payload)
       refreshUserData()
     } catch (error) {
       console.error(error)
@@ -99,7 +99,7 @@ export default function Settings({
             />
           </div>
           <p className="font-medium pt-2 px-2 text-xl">
-            {`${userData?.couple?.persons[0].name} & ${userData?.couple?.persons[1].name}`}
+            {userData?.couple?.name}
           </p>
         </div>
 

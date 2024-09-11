@@ -25,7 +25,7 @@ export default function ExibitionPage({
     async function getUserData() {
       if (url.includes('?id')) {
         try {
-          const response = await axios.get(`${baseUrl.productionUrl}/users/get-user-by-id/${urlParams.get('id')}`, {
+          const response = await axios.get(`${baseUrl.localUrl}/users/get-user-by-id/${urlParams.get('id')}`, {
             headers: {
               "ngrok-skip-browser-warning": "true"
             }
@@ -86,7 +86,7 @@ export default function ExibitionPage({
             />
           </div>
           <p className="font-medium pt-2">
-            {`${userData?.couple?.persons[0].name} & ${userData?.couple?.persons[1].name}`}
+            {userData?.couple?.name}
           </p>
         </div>
         <h1 className="text-5xl italic font-bold py-8">
