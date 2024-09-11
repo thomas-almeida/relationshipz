@@ -10,17 +10,14 @@ import * as cheerio from 'cheerio'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const dbPath = path.join(__dirname, '..', 'db', 'users.json')
 
-// Função para fazer o scraping da imagem de perfil do Instagram
+
 async function scrapeInstagramProfilePicture(instagramUrl) {
   try {
-    // Faz a requisição HTTP para obter o HTML da página
+
     const response = await axios.get(instagramUrl)
     const html = response.data
-
-    // Carrega o HTML no Cheerio
     const $ = cheerio.load(html)
 
-    // Seleciona a tag 'meta' que contém a imagem de perfil (Instagram usa meta tags)
     const profilePicUrl = $('meta[property="og:image"]').attr('content');
 
     if (profilePicUrl) {
@@ -42,7 +39,7 @@ async function signUp(req, res) {
 
   try {
 
-    const { firstPersonName, secondPersonName, firstPersonInstagram, secondPersonInstagram, email, description, password, beginAt } = req.body
+    const { coupleName, firstPersonInstagram, secondPersonInstagram, email, description, password, beginAt } = req.body
 
     if (!fs.existsSync(dbPath)) {
       fs.writeFileSync(dbPath, '[]')
@@ -67,23 +64,15 @@ async function signUp(req, res) {
     const secondPersonProfilePic = await scrapeInstagramProfilePicture(secondPersonInstagram)
 
     const coupleObj = {
-      name: `${firstPersonName} & ${secondPersonName}`,
+      name: coupleName,
       persons: [
         {
           id: 0,
-          name: firstPersonName,
-          age: "",
-          birthday: "",
-          moodId: "",
           instagram: firstPersonInstagram,
           profilePic: firstPersonProfilePic
         },
         {
           id: 1,
-          name: secondPersonName,
-          age: "",
-          birthday: "",
-          moodId: "",
           instagram: secondPersonInstagram,
           profilePic: secondPersonProfilePic
         },
