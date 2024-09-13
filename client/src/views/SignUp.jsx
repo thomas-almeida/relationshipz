@@ -1,35 +1,27 @@
+import { NavLink } from "react-router-dom"
 import { useState } from "react"
-import axios from "axios"
-import { useNavigate, NavLink } from "react-router-dom"
-import baseUrl from "../utils/baseUrl"
-
+//import axios from "axios"
+//import baseUrl from "../utils/baseUrl"
 
 export default function SignUp() {
-
-    // Navigate
-    const redirect = useNavigate()
 
     // Payload States
     const [description, setDescription] = useState('')
     const [coupleName, setCoupleName] = useState('')
-    const [firstPersonInstagram, setFirstPersonInstagram] = useState('')
-    const [secondPersonInstagram, setSecondPersonInstagram] = useState('')
     const [email, setEmail] = useState('')
     const [beginDate, setBeginDate] = useState('')
     const [password, setPassword] = useState('')
-
     const [selectedPlan, setSelectedPlan] = useState(null)
 
     async function selectPaymentPlan(plan) {
-        await setSelectedPlan(plan)
+        setSelectedPlan(plan)
     }
 
     // SignUp Payload
     const userPayload = {
+        selectedPlan: selectedPlan,
         coupleName: coupleName,
         description: description,
-        firstPersonInstagram: `https://www.instagram.com/${firstPersonInstagram}/`,
-        secondPersonInstagram: `https://www.instagram.com/${secondPersonInstagram}/`,
         email: email,
         password: password,
         beginAt: beginDate
@@ -37,32 +29,26 @@ export default function SignUp() {
 
     const [alertInfo, setAlertInfo] = useState('')
 
-    // create User
+    // Store user payload, advance to checkout pix
     async function createUser(event) {
 
         event.preventDefault()
 
         if (selectedPlan === null) {
-            setAlertInfo('Selecione um Plano')
+            alert('Selecione um Plano')
             return
         }
 
         try {
-            const response = await axios.post(`${baseUrl.localUrl}/users/sign-up`, userPayload)
-            localStorage.setItem('userID', response.data?.id)
-            localStorage.setItem('userLogged', 'true')
-            redirect(`/home?settings`)
-
+            console.log(userPayload)
         } catch (error) {
 
             setAlertInfo(console.error)
             alert(alertInfo)
             console.error(error)
-
         }
 
     }
-
 
     return (
         <>
@@ -74,7 +60,7 @@ export default function SignUp() {
                     </div>
                     <div className="mt-5">
                         <form className="" onSubmit={createUser}>
-                            <p className="text-lg font-semibold pt-2">Nome do Casal</p>
+                            <p className="text-lg font-semibold pt-1">Nome do Casal</p>
                             <input
                                 type="text"
                                 className="border w-[100%] my-2 p-2 rounded-sm text-lg"
@@ -83,7 +69,7 @@ export default function SignUp() {
                                 onChange={(e) => setCoupleName(e.target.value)}
                                 required
                             />
-                            <p className="text-lg font-semibold pt-2">Mensagem Principal</p>
+                            <p className="text-lg font-semibold pt-1">Mensagem Principal</p>
                             <input
                                 type="text"
                                 className="border w-[100%] my-2 p-2 rounded-sm text-lg"
@@ -92,25 +78,16 @@ export default function SignUp() {
                                 onChange={(e) => setDescription(e.target.value)}
                                 required
                             />
-                            <p className="text-lg font-semibold mt-4">{`Foto de Perfil do Instagram`}</p>
-
-                            <input
-                                type="text"
-                                className="border w-[100%] my-2 p-2 rounded-sm text-lg"
-                                placeholder="Instagram sem @"
-                                value={firstPersonInstagram}
-                                onChange={(e) => setFirstPersonInstagram(e.target.value)}
-                                required
-                            />
-
-                            <input
-                                type="text"
-                                className="border w-[100%] my-2 p-2 rounded-sm text-lg"
-                                placeholder="Instagram sem @"
-                                value={secondPersonInstagram}
-                                onChange={(e) => setSecondPersonInstagram(e.target.value)}
-                                required
-                            />
+                            <div className="my-2">
+                                <p className="text-lg font-semibold pt-1">Início do Namoro</p>
+                                <input
+                                    type="date"
+                                    className="border w-[100%] my-2 p-2 rounded-sm text-lg"
+                                    value={beginDate}
+                                    onChange={(e) => setBeginDate(e.target.value)}
+                                    required
+                                />
+                            </div>
                             <p className="text-lg font-semibold mt-4">Email</p>
                             <input
                                 type="email"
@@ -120,17 +97,7 @@ export default function SignUp() {
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
                             />
-                            <div className="my-2">
-                                <p className="text-lg font-semibold pt-2">Início do Namoro</p>
-                                <input
-                                    type="date"
-                                    className="border w-[100%] my-2 p-2 rounded-sm text-lg"
-                                    value={beginDate}
-                                    onChange={(e) => setBeginDate(e.target.value)}
-                                    required
-                                />
-                            </div>
-                            <p className="text-lg font-semibold pt-2">Senha</p>
+                            <p className="text-lg font-semibold pt-1">Senha</p>
                             <input
                                 type="password"
                                 className="border w-[100%] my-2 p-2 rounded-sm text-lg"
@@ -157,6 +124,7 @@ export default function SignUp() {
                                         <li className="">❌ Música</li>
                                         <li className="">❌ Lin. do Tempo</li>
                                         <li className="">❌ Wallpaper</li>
+                                        <li className="">❌ Foto de Perfil</li>
                                     </ul>
                                 </div>
                                 <div
@@ -164,7 +132,7 @@ export default function SignUp() {
                                     onClick={() => selectPaymentPlan('PLANO_VITA')}
                                 >
                                     <p className={`border-2 w-[100px] font-semibold text-green-600 border-green-400 text-center px-1 rounded-md absolute right-2 text-sm ${selectedPlan === 'PLANO_VITA' ? 'block' : 'hidden'}`}>Quero Esse</p>
-                                    <h3 className="font-semibold text-lg">Para Sempre, R$42,90</h3>
+                                    <h3 className="font-semibold text-lg">Para Sempre, R$29,90</h3>
                                     <p className="text-sm mt-2">Seu site não espira, e tem suporte vitalício, além de mais funcionalidades como:</p>
                                     <ul className="p-0 m-0 grid grid-cols-2 mt-2">
                                         <li className="">✅ 5 Fotos</li>
@@ -172,11 +140,12 @@ export default function SignUp() {
                                         <li className="">✅ Música</li>
                                         <li className="">✅ Lin. do Tempo</li>
                                         <li className="">✅ Wallpaper</li>
+                                        <li className="">✅ Foto de Perfil</li>
                                     </ul>
                                 </div>
                             </div>
 
-                            <p className=" mb-4">
+                            <p className=" mb-4 mt-4">
                                 Dúvidas? nos mande um
                                 <NavLink to={"/"}>
                                     <b className="font-semibold text-green-600"> Whatsapp!</b>
@@ -196,6 +165,7 @@ export default function SignUp() {
                             </p>
                         </form>
                     </div>
+
                 </div>
             </div>
         </>

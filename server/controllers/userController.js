@@ -39,7 +39,7 @@ async function signUp(req, res) {
 
   try {
 
-    const { coupleName, firstPersonInstagram, secondPersonInstagram, email, description, password, beginAt } = req.body
+    const { coupleName, email, description, password, beginAt } = req.body
 
     if (!fs.existsSync(dbPath)) {
       fs.writeFileSync(dbPath, '[]')
@@ -60,21 +60,18 @@ async function signUp(req, res) {
 
     const id = generateId.generateExtenseId(users)
 
-    const firstPersonProfilePic = await scrapeInstagramProfilePicture(firstPersonInstagram)
-    const secondPersonProfilePic = await scrapeInstagramProfilePicture(secondPersonInstagram)
-
     const coupleObj = {
       name: coupleName,
       persons: [
         {
           id: 0,
-          instagram: firstPersonInstagram,
-          profilePic: firstPersonProfilePic
+          profilePic: '',
+          mood: ''
         },
         {
           id: 1,
-          instagram: secondPersonInstagram,
-          profilePic: secondPersonProfilePic
+          profilePic: '',
+          mood: ''
         },
       ]
     }
@@ -87,7 +84,7 @@ async function signUp(req, res) {
       password: encriptedPassword,
       photos: [],
       goals: [],
-      plan: 'free',
+      plan: '',
       description,
       favoriteSong: ''
     }
