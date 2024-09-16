@@ -39,8 +39,9 @@ export default function LandingPage() {
                     <div className="mb-10">
                         <video
                             src="/example-vid.mp4"
-                            loop
-                            autoPlay
+                            loop={true}
+                            autoPlay={true}
+                            muted={true}
                         >
                         </video>
                     </div>
