@@ -37,7 +37,12 @@ export default function LandingPage() {
                     </div>
 
                     <div className="mb-10">
-                        <img src="/super-example.gif" draggable="false" alt="" />
+                        <video
+                            src="/example-vid.mp4"
+                            loop
+                            autoPlay
+                        >
+                        </video>
                     </div>
 
                     <div className="text-center">
