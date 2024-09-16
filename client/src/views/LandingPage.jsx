@@ -19,7 +19,7 @@ export default function LandingPage() {
                         <NavLink
                             to={"/sign-up"}
                         >
-                            <button className="rounded-md shadow-md p-2 px-4 w-[80%] bg-[#EA2DA0] my-2 mt-4 text-white font-semibold">
+                            <button className="rounded-md shadow-md py-3 px-4 text-lg w-[80%] bg-[#EA2DA0] my-2 mt-4 text-white font-semibold">
                                 Criar meu site agora
                             </button>
                         </NavLink>
@@ -27,7 +27,7 @@ export default function LandingPage() {
                         <NavLink
                             to={"/sign-in"}
                         >
-                            <button className="w-[80%] mt-2 border-2 border-black rounded-md p-2 px-4">
+                            <button className="w-[80%] mt-2 border-2 border-black rounded-md py-3 px-4 text-lg">
                                 <div className="flex justify-center items-center">
                                     <p className="font-semibold">Já tenho conta</p>
                                     <img src="/arrow.png" className="relative top-[2px] left-1" alt="" />
@@ -62,7 +62,7 @@ export default function LandingPage() {
                             <NavLink
                                 to={"/sign-up"}
                             >
-                                <button className="rounded-md shadow-md p-2 px-4 w-[80%] bg-[#EA2DA0] my-2 mt-4 text-white font-semibold">
+                                <button className="rounded-md shadow-md py-3 px-4 text-lg w-[80%] bg-[#EA2DA0] my-2 mt-4 text-white font-semibold">
                                     Criar meu site agora
                                 </button>
                             </NavLink>
@@ -98,7 +98,7 @@ export default function LandingPage() {
                         <NavLink
                             to={"/sign-up"}
                         >
-                            <button className="rounded-md shadow-md p-2 px-4 w-[80%] bg-[#EA2DA0] my-2 mt-4 text-white font-semibold">
+                            <button className="rounded-md shadow-md py-3 px-4 text-lg w-[80%] bg-[#EA2DA0] my-2 mt-4 text-white font-semibold">
                                 Criar meu site agora
                             </button>
                         </NavLink>
