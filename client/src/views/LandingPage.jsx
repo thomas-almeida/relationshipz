@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import Footer from "../components/Footer";
 
 export default function LandingPage() {
     return (
@@ -26,7 +27,7 @@ export default function LandingPage() {
                         <NavLink
                             to={"/sign-in"}
                         >
-                            <button className="w-[80%] mt-2">
+                            <button className="w-[80%] mt-2 border-2 border-black rounded-md p-2 px-4">
                                 <div className="flex justify-center items-center">
                                     <p className="font-semibold">Já tenho conta</p>
                                     <img src="/arrow.png" className="relative top-[2px] left-1" alt="" />
@@ -49,7 +50,7 @@ export default function LandingPage() {
 
                         <div className="border-4 rounded-md my-2 p-2 mt-4">
                             <h3 className="text-xl font-bold pb-2">1. Dados do Casal</h3>
-                            <p className="font-semibold">Ao clicar em criar o site você será redirecionado para inserir os dados do site como nome do casal, tempo, mensagem, email e senha de acesso.</p>
+                            <p className="font-semibold">Ao clicar em  <a href="#" className="text-[#EA2DA0]">crie seu site agora</a>criar o site você será redirecionado para inserir os dados do site como nome do casal, tempo, mensagem, email e senha de acesso.</p>
                         </div>
                         <div className="border-4 rounded-md my-2 p-2">
                             <h3 className="text-xl font-bold pb-2">2. Escolha um Plano</h3>
@@ -67,6 +68,7 @@ export default function LandingPage() {
                             </NavLink>
                         </div>
                     </div>
+
                     <div className="mt-8 text-center">
                         <h2 className="text-2xl font-bold pb-4">Perguntas Frequentes</h2>
                         <div className="border-4 rounded-md my-2 p-2 mt-4">
@@ -75,7 +77,7 @@ export default function LandingPage() {
                         </div>
                         <div className="border-4 rounded-md my-2 p-2">
                             <h3 className="text-xl font-bold pb-2">Como criar um site no Goals💕</h3>
-                            <p className="font-semibold">Para criar um site personalizado na plataforma é muito simples, basta clicar em crie seu site agora e começar a preencher o formulário com os dados do casal</p>
+                            <p className="font-semibold">Para criar um site personalizado na plataforma é muito simples, basta clicar em <a href="#" className="text-[#EA2DA0]">crie seu site agora</a> e começar a preencher o formulário com os dados do casal</p>
                         </div>
                         <div className="border-4 rounded-md my-2 p-2">
                             <h3 className="text-xl font-bold pb-2">Como recebo minha página personalzada</h3>
@@ -91,7 +93,7 @@ export default function LandingPage() {
                         </div>
                         <div className="border-4 rounded-md my-2 p-2">
                             <h3 className="text-xl font-bold pb-2">Como funciona o suporte</h3>
-                            <p className="font-semibold">Basta enviar uma mensagem por aqui, e vamos te atender o mais rápido possível para esclarecer e sanar quaisquer dúvidas</p>
+                            <p className="font-semibold">Basta enviar uma <a href="#" className="text-[#04AA28]">mensagem por aqui</a>, e vamos te atender o mais rápido possível para esclarecer e sanar quaisquer dúvidas</p>
                         </div>
                         <NavLink
                             to={"/sign-up"}
@@ -103,6 +105,7 @@ export default function LandingPage() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     )
 }
