@@ -2,6 +2,7 @@ import { Router } from "express"
 import { upload, uploadPhoto } from "../controllers/photoController.js"
 import userController from '../controllers/userController.js'
 import coupleController from "../controllers/coupleController.js"
+import paymentController from "../controllers/paymentController.js"
 
 const api = Router()
 
@@ -17,5 +18,8 @@ api.post('/users/upload-photo', upload.single('file'), uploadPhoto)
 //couple
 api.post('/users/couple/create-description', coupleController.createDescription)
 api.post('/users/couple/register-couple', coupleController.registerCouple)
+
+//payment
+api.post('/create-checkout-intent', paymentController.createPaymentLink)
 
 export default api
