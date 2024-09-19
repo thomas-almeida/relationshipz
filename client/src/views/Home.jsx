@@ -9,8 +9,8 @@ export default function Home() {
     const [activeScreen, setActiveScreen] = useState('settings')
 
     async function getUserData() {
-        if (localStorage.getItem('userID') !== 'undefined') {
-            let userId = localStorage.getItem('userID')
+        if (localStorage.getItem('userId') !== 'undefined') {
+            let userId = localStorage.getItem('userId')
             const response = await axios.get(`${baseUrl.localUrl}/users/get-user-by-id/${userId}`, {
                 headers: {
                     "ngrok-skip-browser-warning": "true"

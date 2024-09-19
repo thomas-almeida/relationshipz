@@ -5,7 +5,7 @@
 import { useEffect, useState } from "react"
 import baseUrl from "../../utils/baseUrl"
 import LazyLoad from 'react-lazyload'
-import { useNavigate } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import axios from "axios"
 
 export default function ExibitionPage({
@@ -15,12 +15,15 @@ export default function ExibitionPage({
 
   const [coupleHistory, setCoupleHistory] = useState()
   const [userData, setUserData] = useState('')
+  const [userId, setUserId] = useState('')
   const redirect = useNavigate()
 
   useEffect(() => {
 
     const url = window.location.search
     const urlParams = new URLSearchParams(url)
+
+    setUserId(urlParams.get('id'))
 
     async function getUserData() {
       if (url.includes('?id')) {
@@ -59,7 +62,7 @@ export default function ExibitionPage({
       const months = Math.floor((dayDiff % 365) / 30)
       const days = dayDiff % 30
 
-      setCoupleHistory(`${years}a, ${months}m,${days}d`)
+      setCoupleHistory(`${years} Anos, ${months} Meses, ${days} Dias`)
 
       return coupleHistory
     }
@@ -72,7 +75,13 @@ export default function ExibitionPage({
     <div className="flex justify-center items-center bg-white">
       <div className="text-center w-[95%]">
 
-        <p className="mt-6">Feito com <b className="font-semibold">Goals 💕</b></p>
+        <p className="mt-6">
+          Feito com
+          <NavLink to={'/'}>
+            <b className="font-semibold"> Goals 💕</b>
+          </NavLink>
+
+        </p>
 
         <div className="pt-12">
           <div className="flex justify-center items-center relative right-[5px]">
@@ -127,7 +136,7 @@ export default function ExibitionPage({
         </div>
 
         {
-          localStorage.getItem('userLogged') && (
+          localStorage.getItem('userId') === userId && (
             <div className="mt-6 absolute top-0 left-[20px]">
               <button
                 className="px-2 py-1 rounded-md shadow-sm text-md border-2 cursor-pointer"

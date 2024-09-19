@@ -18,6 +18,7 @@ export default function Settings({
   const [userBeginAt, setBeginAt] = useState('')
   const redirect = useNavigate()
 
+
   useEffect(() => {
     function checkLogged() {
       if (localStorage.getItem('userLogged') !== 'true') {
@@ -90,11 +91,11 @@ export default function Settings({
         <div className="flex justify-start pt-10">
           <div className="flex justify-center items-center relative right-[5px]">
             <img
-              src={`${baseUrl.profielPicPrefix}${userData?.couple?.persons[0].profilePic}`}
+              src={''}
               className="bg-gray-500 w-[40px] h-[40px] rounded-full relative left-[15px] shadow-xl"
             />
             <img
-              src={`${baseUrl.profielPicPrefix}${userData?.couple?.persons[1].profilePic}`}
+              src={''}
               className="bg-gray-500 w-[40px] h-[40px] rounded-full shadow-xl"
             />
           </div>

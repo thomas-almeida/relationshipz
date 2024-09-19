@@ -73,7 +73,26 @@ export default function LandingPage() {
                                 </button>
                             </NavLink>
                         </div>
+
+                        <div className="rounded-sm mt-4">
+
+                            <h2 className="text-2xl font-bold">Quanto Custa?</h2>
+
+                            <div
+                                className='text-left border-2 p-2 rounded-md my-4 mb-1 w-full relative border-green-400 shadow-md'
+                            >
+                                <h3 className="font-semibold text-lg">Anual, R$29,90</h3>
+                                <p className="text-sm mt-2">Seu site não espira por um ano, e tem suporte em horário comercial, além de funcionalidades como:</p>
+                                <ul className="p-0 m-0 grid grid-cols-2 mt-2">
+                                    <li className="">✅ 5 Fotos</li>
+                                    <li className="">✅ QR Code</li>
+                                    <li className="">✅ Música</li>
+                                    <li className="">✅ Foto de Perfil</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
+
 
                     <div className="mt-8 text-center">
                         <h2 className="text-2xl font-bold pb-4">Perguntas Frequentes</h2>
