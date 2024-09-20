@@ -6,21 +6,20 @@ const stripe = stripePackage(process.env.STRIPE_SECRET_KEY)
 
 async function createPaymentLink(req, res) {
 
-    const { productId, customerData } = req.body
+    const { productId } = req.body
 
     try {
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
             line_items: [
                 {
-                    price: productId?.priceId, // O ID do produto cadastrado no Stripe
+                    price: productId?.priceId,
                     quantity: 1,
                 },
             ],
             mode: 'subscription',
-            success_url: 'https://seusite.com/sucesso', // Substitua pelas URLs apropriadas
-            cancel_url: 'https://seusite.com/cancelar',
-            customer_email: customerData?.email,
+            success_url: 'http://localhost:5173/sign-up?paid=true',
+            cancel_url: 'http://localhost:5173/',
         })
 
         res.json({

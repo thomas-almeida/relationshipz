@@ -1,8 +1,9 @@
-import { Router } from "express"
+import express, { Router } from "express"
 import { upload, uploadPhoto } from "../controllers/photoController.js"
 import userController from '../controllers/userController.js'
 import coupleController from "../controllers/coupleController.js"
 import paymentController from "../controllers/paymentController.js"
+import webhookController from "../controllers/webhookController.js"
 
 const api = Router()
 
@@ -21,5 +22,8 @@ api.post('/users/couple/register-couple', coupleController.registerCouple)
 
 //payment
 api.post('/create-checkout-intent', paymentController.createPaymentLink)
+
+//webhook
+api.post('/webhook', express.raw({type: 'application/json'}), webhookController.handleStripeWebhook)
 
 export default api

@@ -84,7 +84,7 @@ async function signUp(req, res) {
       password: encriptedPassword,
       photos: [],
       goals: [],
-      plan: '',
+      subscription: 'YEARLY_DEFAULT',
       description,
       favoriteSong: ''
     }

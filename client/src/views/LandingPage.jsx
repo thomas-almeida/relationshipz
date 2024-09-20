@@ -1,7 +1,32 @@
-import { NavLink } from "react-router-dom";
+ import { NavLink } from "react-router-dom";
 import Footer from "../components/Footer";
+import axios from "axios"
+import baseUrl from '../utils/baseUrl.js'
 
 export default function LandingPage() {
+
+    async function generatePaymentIntent() {
+
+        const product = {
+            productId: baseUrl.stripeTestYearlyId
+        }
+
+        try {
+            const response = await axios.post(
+                `${baseUrl.localUrl}/create-checkout-intent`,
+                product
+            )
+
+            const stripeUrl = response.data?.url
+
+            //redirect
+            window.location.href = stripeUrl         
+
+        } catch (err) {
+            console.error(err)
+        }
+    }
+
     return (
         <>
             <div className="flex justify-center">
@@ -16,13 +41,14 @@ export default function LandingPage() {
                         <p className="font-semibold mt-2">
                             Seu namoro agora com um site personalizado + um contador ao vivo do tempo de relacionamento com fotos do casal
                         </p>
-                        <NavLink
-                            to={"/sign-up"}
+
+                        <button
+                            className="rounded-md shadow-md py-3 px-4 text-lg w-[80%] bg-[#EA2DA0] my-2 mt-4 text-white font-semibold"
+                            onClick={() => generatePaymentIntent()}
                         >
-                            <button className="rounded-md shadow-md py-3 px-4 text-lg w-[80%] bg-[#EA2DA0] my-2 mt-4 text-white font-semibold">
-                                Criar meu site agora
-                            </button>
-                        </NavLink>
+                            Criar meu site agora
+                        </button>
+
                         <br />
                         <NavLink
                             to={"/sign-in"}
