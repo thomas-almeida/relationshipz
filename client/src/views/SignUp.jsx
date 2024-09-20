@@ -51,6 +51,7 @@ export default function SignUp() {
             const response = await axios.post(`${baseUrl.localUrl}/users/sign-up`, userPayload)
             localStorage.setItem('userId', response.data?.id)
             localStorage.setItem('userData', JSON.stringify(response.data))
+            localStorage.setItem('userLogged', true)
             redirect('/home?settings')
 
         } catch (error) {
