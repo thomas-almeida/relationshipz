@@ -1,1 +1,28 @@
-[]
+[
+  {
+    "id": "amvboa529",
+    "email": "xtohcvb@gmail.com",
+    "couple": {
+      "name": "Thomas & Rebeka",
+      "persons": [
+        {
+          "id": 0,
+          "profilePic": "",
+          "mood": ""
+        },
+        {
+          "id": 1,
+          "profilePic": "",
+          "mood": ""
+        }
+      ]
+    },
+    "beginAt": "2023-01-21",
+    "password": "rstuvw",
+    "photos": [],
+    "goals": [],
+    "subscription": "YEARLY_DEFAULT",
+    "description": "Agostinho e Indiazinha",
+    "favoriteSong": ""
+  }
+]
