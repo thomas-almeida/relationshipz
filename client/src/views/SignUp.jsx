@@ -52,6 +52,13 @@ export default function SignUp() {
             localStorage.setItem('userId', response.data?.id)
             localStorage.setItem('userData', JSON.stringify(response.data))
             localStorage.setItem('userLogged', true)
+
+            //sending email
+            await axios.post(`${baseUrl.localUrl}/send-email`, {
+                email: email,
+                link: `https://goals-three.vercel.app/home?id=${response.data?.id}`
+            })
+
             redirect('/home?settings')
 
         } catch (error) {
