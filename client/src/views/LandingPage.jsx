@@ -1,4 +1,4 @@
- import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Footer from "../components/Footer";
 import axios from "axios"
 import baseUrl from '../utils/baseUrl.js'
@@ -20,7 +20,7 @@ export default function LandingPage() {
             const stripeUrl = response.data?.url
 
             //redirect
-            window.location.href = stripeUrl         
+            window.location.href = stripeUrl
 
         } catch (err) {
             console.error(err)
@@ -81,23 +81,22 @@ export default function LandingPage() {
                         </p>
 
                         <div className="border-4 rounded-md my-2 p-2 mt-4">
-                            <h3 className="text-xl font-bold pb-2">1. Dados do Casal</h3>
-                            <p className="font-semibold">Ao clicar em  <a href="#" className="text-[#EA2DA0]">crie seu site agora</a>criar o site você será redirecionado para inserir os dados do site como nome do casal, tempo, mensagem, email e senha de acesso.</p>
+                            <h3 className="text-xl font-bold pb-2">1. Pagamento</h3>
+                            <p className="font-semibold">Ao clicar em  <a href="#" className="text-[#EA2DA0]" onClick={() => generatePaymentIntent()}>crie seu site agora</a> você será redirecionado para o pagamento do <b className="font-semibold text-blue-600">Plano Único Anual</b>, após realizar o pagamento você será redirecionado para inserir os dados do site como nome do casal, tempo, mensagem, email e senha de acesso.</p>
                         </div>
                         <div className="border-4 rounded-md my-2 p-2">
-                            <h3 className="text-xl font-bold pb-2">2. Escolha um Plano</h3>
-                            <p className="font-semibold">Após optar em um dos planos anual ou vitalício, e ter inserido os dados iniciais do casal, você será redirecionado ao pagamento do plano escolhido, se estiver tudo certo, você receberá um email com o QR Code do site e irá para a página de configurações</p>
+                            <h3 className="text-xl font-bold pb-2">2. Dados do Casal</h3>
+                            <p className="font-semibold">Após realizar o pagamento, e ter inserido os dados iniciais do casal, você receberá um email com o QR Code do site e irá para a página de configurações</p>
                         </div>
                         <div className="border-4 rounded-md my-2 p-2">
                             <h3 className="text-xl font-bold pb-2">3. Surpreenda seu Amor</h3>
-                            <p className="font-semibold">Com seu site e QR Code em mãos, insira fotos, edite a mensagem principal, seja livre para personalizar do jeito que quiser e compartilhar seu site com qualquer pessoa</p>
-                            <NavLink
-                                to={"/sign-up"}
+                            <p className="font-semibold">Com seu site e QR Code em mãos, insira fotos, edite a mensagem principal, seja livre para personalizar do jeito que quiser e compartilhar seu site com qualquer pessoa!</p>
+                            <button
+                                className="rounded-md shadow-md py-3 px-4 text-lg w-[80%] bg-[#EA2DA0] my-2 mt-4 text-white font-semibold"
+                                onClick={() => generatePaymentIntent()}
                             >
-                                <button className="rounded-md shadow-md py-3 px-4 text-lg w-[80%] bg-[#EA2DA0] my-2 mt-4 text-white font-semibold">
-                                    Criar meu site agora
-                                </button>
-                            </NavLink>
+                                Criar meu site agora
+                            </button>
                         </div>
 
                         <div className="rounded-sm mt-4">
@@ -108,12 +107,12 @@ export default function LandingPage() {
                                 className='text-left border-2 p-2 rounded-md my-4 mb-1 w-full relative border-green-400 shadow-md'
                             >
                                 <h3 className="font-semibold text-lg">Anual, R$29,90</h3>
-                                <p className="text-sm mt-2">Seu site não espira por um ano, e tem suporte em horário comercial, além de funcionalidades como:</p>
+                                <p className="text-sm mt-2">Seu site personalizado por um ano, suporte em horário comercial, além de funcionalidades como:</p>
                                 <ul className="p-0 m-0 grid grid-cols-2 mt-2">
                                     <li className="">✅ 5 Fotos</li>
                                     <li className="">✅ QR Code</li>
                                     <li className="">✅ Música</li>
-                                    <li className="">✅ Foto de Perfil</li>
+                                    <li className="">✅ Mensagem Pers.</li>
                                 </ul>
                             </div>
                         </div>
@@ -128,31 +127,30 @@ export default function LandingPage() {
                         </div>
                         <div className="border-4 rounded-md my-2 p-2">
                             <h3 className="text-xl font-bold pb-2">Como criar um site no Goals💕</h3>
-                            <p className="font-semibold">Para criar um site personalizado na plataforma é muito simples, basta clicar em <a href="#" className="text-[#EA2DA0]">crie seu site agora</a> e começar a preencher o formulário com os dados do casal</p>
+                            <p className="font-semibold">Para criar um site personalizado na plataforma é muito simples, basta clicar em <a href="#" className="text-[#EA2DA0]" onClick={() => generatePaymentIntent()}>crie seu site agora</a> e começar a preencher o formulário com os dados do casal logo após o pagamento</p>
                         </div>
                         <div className="border-4 rounded-md my-2 p-2">
                             <h3 className="text-xl font-bold pb-2">Como recebo minha página personalzada</h3>
-                            <p className="font-semibold">O processo é automático, após escolher um dos planos e realizar o pagamento, voce é redirecionado á sua página para  personalizar seu site e recebe um email com o QR Code do site para imprimir se quiser</p>
+                            <p className="font-semibold">O processo é automático, após realizar o pagamento, voce é redirecionado á sua página para  personalizar seu site e recebe um email com o QR Code do site para imprimir se quiser</p>
                         </div>
                         <div className="border-4 rounded-md my-2 p-2">
                             <h3 className="text-xl font-bold pb-2">A Página tem validade?</h3>
-                            <p className="font-semibold">No preço básico de um ano sim, mas no vitalício você garante sua página personalizada 24/7 disponível para contar os minutos e segundos do seu relacionamento</p>
+                            <p className="font-semibold">Trabalhamos com o plano anual, então durante a assinatura de um ano você garante sua página personalizada 24/7 disponível para contar os minutos e segundos do seu relacionamento!</p>
                         </div>
                         <div className="border-4 rounded-md my-2 p-2">
                             <h3 className="text-xl font-bold pb-2">Quais são as formas de pagamento</h3>
-                            <p className="font-semibold">A forma de pagamento aceita por enquanto são por pix, cartões e boleto, você pode pagar como preferir</p>
+                            <p className="font-semibold">A forma de pagamento aceita por enquanto são por cartões de crédito e débito. Caso queira ou possua apenas pix, entre em contato com o suporte.</p>
                         </div>
                         <div className="border-4 rounded-md my-2 p-2">
                             <h3 className="text-xl font-bold pb-2">Como funciona o suporte</h3>
                             <p className="font-semibold">Basta enviar uma <a href="#" className="text-[#04AA28]">mensagem por aqui</a>, e vamos te atender o mais rápido possível para esclarecer e sanar quaisquer dúvidas</p>
                         </div>
-                        <NavLink
-                            to={"/sign-up"}
+                        <button
+                            className="rounded-md shadow-md py-3 px-4 text-lg w-[80%] bg-[#EA2DA0] my-2 mt-4 text-white font-semibold"
+                            onClick={() => generatePaymentIntent()}
                         >
-                            <button className="rounded-md shadow-md py-3 px-4 text-lg w-[80%] bg-[#EA2DA0] my-2 mt-4 text-white font-semibold">
-                                Criar meu site agora
-                            </button>
-                        </NavLink>
+                            Criar meu site agora
+                        </button>
                     </div>
                 </div>
             </div>
