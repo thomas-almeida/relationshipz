@@ -5,6 +5,7 @@ import SignIn from './views/SignIn'
 import SignUp from './views/SignUp'
 import ExibitionPage from "./views/modules/ExibitionPage"
 import LandingPage from "./views/LandingPage"
+import TermsAndPolicy from "./views/TermsAndPolicy"
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route path='/sign-in' element={<SignIn />}></Route>
         <Route path='/sign-up' element={<SignUp />}></Route>
         <Route path='/goals' element={<ExibitionPage />}></Route>
+        <Route path='/termos-e-condicoes' element={<TermsAndPolicy />}></Route>
       </Routes>
     </Router>
   )

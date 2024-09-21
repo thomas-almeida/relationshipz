@@ -19,8 +19,7 @@ export default function Footer() {
                     </p>
                 </div>
                 <div className="py-2 flex justify-around items-center flex-wrap font-semibold">
-                    <a href="#">Veja os Termos de uso</a>
-                    <a href="#">Veja os Termos de privacidade</a>
+                    <a href="/termos-e-condicoes">Veja os Termos e Condições</a>
                 </div>
             </footer>
         </>
