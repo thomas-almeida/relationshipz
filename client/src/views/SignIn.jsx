@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import baseUrl from "../utils/baseUrl"
+import Footer from "../components/Footer"
 
 export default function SignIn() {
 
@@ -31,8 +32,9 @@ export default function SignIn() {
         try {
 
             const response = await axios.post(`${baseUrl.localUrl}/users/sign-in`, userPayload)
-            localStorage.setItem('userID', response.data.user?.id)
+            localStorage.setItem('userId', response.data.user?.id)
             localStorage.setItem('userLogged', 'true')
+            localStorage.setItem('userData', JSON.stringify(response.data?.user))
             redirect(`/home?settings`)
 
         } catch (error) {
@@ -47,8 +49,12 @@ export default function SignIn() {
             <div className="flex justify-center items-center h-screen">
                 <div className="w-[85%]">
                     <div className="text-center">
-                        <h1 className="text-black text-center mb-4 font-semibold">GOALS</h1>
-                        <h2 className="text-2xl font-semibold py-2">O Site do Seu Relacionamento!</h2>
+                        <div className="flex justify-center m-2 mb-4">
+                            <p className="border-2 font-semibold w-[80px] rounded-md shadow-sm">
+                                Goals 💕
+                            </p>
+                        </div>
+                        <h1 className="text-4xl font-bold py-6">O Site do Seu Relacionamento!</h1>
                     </div>
                     <div className="mt-5">
                         <form className="" onSubmit={signInUser}>
@@ -70,19 +76,20 @@ export default function SignIn() {
                             />
                             <input
                                 type="submit"
-                                className="border w-[100%] my-2 p-2 rounded-sm bg-purple-600 text-white font-medium"
+                                className="border w-[100%] my-2 p-2 rounded-md shadow-md bg-[#EA2DA0] text-white font-medium"
                                 value="Entrar"
                             />
                             <p className="text-center mt-4">
-                                Ainda não tem o site de voces?,
-                                <NavLink to={"/sign-up"}>
-                                    <b className="font-semibold text-purple-600"> crie um agora!</b>
+                                <p>Ainda não tem o site de voces?,</p>
+                                <NavLink to={"/"}>
+                                    <b className="font-semibold text-[#EA2DA0]"> crie o seu site agora!</b>
                                 </NavLink>
                             </p>
                         </form>
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     )
 }
