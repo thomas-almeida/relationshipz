@@ -84,16 +84,6 @@ export default function ExibitionPage({
         </p>
 
         <div className="pt-12">
-          <div className="flex justify-center items-center relative right-[5px]">
-            <img
-              src={`${baseUrl.profielPicPrefix}${userData?.couple?.persons[0].profilePic}`}
-              className="bg-gray-500 w-[60px] h-[60px] rounded-full relative left-[15px] shadow-xl"
-            />
-            <img
-              src={`${baseUrl.profielPicPrefix}${userData?.couple?.persons[1].profilePic}`}
-              className="bg-gray-500 w-[60px] h-[60px] rounded-full shadow-xl"
-            />
-          </div>
           <p className="font-medium pt-2">
             {userData?.couple?.name}
           </p>

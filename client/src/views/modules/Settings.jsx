@@ -89,17 +89,7 @@ export default function Settings({
         <h1 className="text-black text-center">Goals 💕</h1>
 
         <div className="flex justify-start pt-10">
-          <div className="flex justify-center items-center relative right-[5px]">
-            <img
-              src={''}
-              className="bg-gray-500 w-[40px] h-[40px] rounded-full relative left-[15px] shadow-xl"
-            />
-            <img
-              src={''}
-              className="bg-gray-500 w-[40px] h-[40px] rounded-full shadow-xl"
-            />
-          </div>
-          <p className="font-medium pt-2 px-2 text-xl">
+          <p className="font-semibold pt-2 px-2 text-xl">
             {userData?.couple?.name}
           </p>
         </div>
