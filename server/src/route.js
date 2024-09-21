@@ -1,5 +1,5 @@
 import { Router } from "express"
-import { upload, uploadPhoto } from "../controllers/photoController.js"
+import { upload, uploadPhoto, removePhoto } from "../controllers/photoController.js"
 import userController from '../controllers/userController.js'
 import coupleController from "../controllers/coupleController.js"
 import paymentController from "../controllers/paymentController.js"
@@ -13,8 +13,9 @@ api.post('/users/sign-in', userController.signIn)
 api.get('/users/get-user-by-id/:id', userController.getUserById)
 api.post('/users/save-settings', userController.saveSettings)
 
-//upload
+//Photos
 api.post('/users/upload-photo', upload.single('file'), uploadPhoto)
+api.post('/users/remove-photo', removePhoto)
 
 //couple
 api.post('/users/couple/create-description', coupleController.createDescription)

@@ -127,4 +127,52 @@ async function uploadPhoto(req, res) {
   }
 }
 
-export { uploadPhoto, upload };
+async function removePhoto(req, res) {
+  try {
+    const { userId, driveId } = req.body;
+
+    if (!userId || !driveId) {
+      return res.status(400).send('userId ou driveId inválido');
+    }
+
+    // Caminho para o banco de dados (JSON DB)
+    const dbPath = path.join(__dirname, '..', 'db', 'users.json');
+    const usersData = JSON.parse(fs.readFileSync(dbPath, 'utf-8'));
+
+    // Encontrar o usuário
+    const user = usersData.find(user => user.id === userId);
+    if (!user) {
+      return res.status(404).send('Usuário não encontrado');
+    }
+
+    // Encontrar o índice da foto no array de fotos
+    const photoIndex = user.photos.findIndex(photo => photo.driveId === driveId);
+    if (photoIndex === -1) {
+      return res.status(404).send('Foto não encontrada');
+    }
+
+    // Remover a foto do array
+    const removedPhoto = user.photos.splice(photoIndex, 1)[0];
+
+    // Atualizar o banco de dados
+    fs.writeFileSync(dbPath, JSON.stringify(usersData, null, 2), 'utf-8');
+
+    // Remover o arquivo do Google Drive
+    await drive.files.delete({
+      fileId: driveId,
+    });
+
+    res.send({
+      message: 'Foto removida com sucesso',
+      removedPhoto,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      message: 'Erro no servidor ao remover a foto',
+      error: error.message,
+    });
+  }
+}
+
+export { uploadPhoto, upload, removePhoto };

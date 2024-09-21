@@ -82,6 +82,24 @@ export default function Settings({
     redirect(`/goals?id=${userData?.id}`)
   }
 
+  async function removePhoto(userId, driveId) {
+
+    const payload = {
+      userId: userId,
+      driveId: driveId
+    }
+
+    try {
+      
+      await axios.post(`${baseUrl.localUrl}/users/remove-photo`, payload)
+      alert('foto removida com sucesso')
+      refreshUserData()
+
+    } catch (error) {
+      alert(error.message)
+    }
+  }
+
   return (
     <>
 
@@ -111,12 +129,18 @@ export default function Settings({
                 userData?.photos.map((photo, index) => (
                   <div
                     key={index}
-                    className="flex justify-center m-1"
+                    className="flex justify-center m-1 relative"
                   >
                     <img
                       src={photo?.directLink}
-                      className="h-[260px] w-[100%] rounded-md shadow-lg shadow-[#00000014] object-cover"
+                      className="h-[260px] w-[100%] rounded-md shadow-md shadow-[#0000003a] object-cover"
                     />
+                    <p
+                      className="absolute p-2 px-4 rounded-sm bg-[#ffffffc7] right-2 bottom-4 shadow-md flex items-center justify-center"
+                      onClick={() => removePhoto(userData?.id, photo?.driveId)}
+                    >
+                      <img src="/trash.svg" className="w-[25px]" />
+                    </p>
                   </div>
                 ))
               }
