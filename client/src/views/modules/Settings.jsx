@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, NavLink } from "react-router-dom"
 import baseUrl from "../../utils/baseUrl"
 import axios from 'axios'
 
@@ -90,7 +90,7 @@ export default function Settings({
     }
 
     try {
-      
+
       await axios.post(`${baseUrl.localUrl}/users/remove-photo`, payload)
       alert('foto removida com sucesso')
       refreshUserData()
@@ -104,9 +104,15 @@ export default function Settings({
     <>
 
       <div className="w-[85%]">
-        <h1 className="text-black text-center">Goals 💕</h1>
+        <div className="flex justify-center m-2 text-center">
+          <p className="border-2 font-semibold w-[80px] rounded-md shadow-sm">
+            <NavLink to={'/'}>
+              Goals 💕
+            </NavLink>
+          </p>
+        </div>
 
-        <div className="flex justify-start pt-10">
+        <div className="flex justify-start pt-5">
           <p className="font-semibold pt-2 px-2 text-xl">
             {userData?.couple?.name}
           </p>

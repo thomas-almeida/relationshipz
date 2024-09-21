@@ -68,6 +68,7 @@ export default function LandingPage() {
                             loop={true}
                             autoPlay={true}
                             muted={true}
+                            playsInline={true}
                         >
                         </video>
                     </div>
