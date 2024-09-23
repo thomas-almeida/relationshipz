@@ -16,6 +16,8 @@ export default function Settings({
 
   const [userMessage, setMessage] = useState('')
   const [userBeginAt, setBeginAt] = useState('')
+  const [favoriteSong, setFavoriteSong] = useState('')
+  const [songInfo, setSongInfo] = useState('')
   const redirect = useNavigate()
 
 
@@ -33,6 +35,27 @@ export default function Settings({
     setMessage(userData?.description)
     setBeginAt(userData?.beginAt)
   }, [userData?.beginAt, userData?.description])
+
+  useEffect(() => {
+
+    async function getSongUrl() {
+      if (userData?.favoriteSong?.videoId) {
+        try {
+          const response = await axios.post(`${baseUrl.localUrl}/get-stream-url`, {
+            videoId: userData?.favoriteSong?.videoId
+          })
+
+          setSongInfo(response.data?.audioUrl)
+
+        } catch (error) {
+          console.error(error)
+        }
+      }
+    }
+
+    getSongUrl()
+
+  }, [userData])
 
   async function handlePhotoChange(event) {
 
@@ -100,9 +123,20 @@ export default function Settings({
     }
   }
 
+  async function searchSong() {
+    try {
+
+      const response = await axios.get(`${baseUrl.localUrl}/search-song/${userData?.id}/${favoriteSong}`)
+      setSongInfo(response.data?.song)
+      refreshUserData()
+
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   return (
     <>
-
       <div className="w-[85%]">
         <div className="flex justify-center m-2 text-center">
           <p className="border-2 font-semibold w-[80px] rounded-md shadow-sm">
@@ -183,6 +217,58 @@ export default function Settings({
             onChange={(e) => setMessage(e.target.value)}
             className="outline-none text-4xl pt-4 font-semibold w-[100%]"
           />
+        </div>
+
+        <div className="mt-6 border-2 py-2 rounded-md px-4 bg-white">
+          <p className="font-medium pr-2 text-xl">
+            Música de Fundo
+          </p>
+          <div className="relative flex items-center mt-4 border-2 p-2 rounded-md ">
+            <input
+              type="text"
+              value={favoriteSong}
+              placeholder="Nome da Música"
+              onChange={(e) => setFavoriteSong(e.target.value)}
+              className="outline-none text-xl font-semibold w-[100%]"
+            />
+            <div
+              className="p-2 border-2 shadow-sm rounded-md"
+              onClick={() => searchSong()}
+            >
+              <img
+                src="/search.svg"
+                className="w-[20px]"
+              />
+            </div>
+          </div>
+          <div>
+            {
+              userData?.favoriteSong && (
+                <div>
+                  <div className="mt-2 flex items-center">
+                    <div className="p-1">
+                      <img
+                        src={userData?.favoriteSong?.image}
+                        className=" min-w-[80px] w-[80px] h-[80px] object-cover rounded-sm shadow-md"
+                      />
+                    </div>
+                    <div className="ml-2">
+                      <p className="font-semibold text-lg leading-5">
+                        {userData?.favoriteSong?.title}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="mt-2">
+                    <audio
+                      controls
+                      src={songInfo}
+                    >
+                    </audio>
+                  </div>
+                </div>
+              )
+            }
+          </div>
         </div>
 
         <div className="mt-4 border-2 py-2 rounded-md px-4 bg-white">

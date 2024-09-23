@@ -16,6 +16,7 @@ export default function ExibitionPage({
   const [coupleHistory, setCoupleHistory] = useState()
   const [userData, setUserData] = useState('')
   const [userId, setUserId] = useState('')
+  const [songUrl, setSongUrl] = useState('')
   const redirect = useNavigate()
 
   useEffect(() => {
@@ -35,6 +36,7 @@ export default function ExibitionPage({
           })
 
           setUserData(response.data.user)
+
         } catch (error) {
           console.error(error)
           redirect('/')
@@ -43,7 +45,28 @@ export default function ExibitionPage({
     }
 
     getUserData()
+
   }, [])
+
+  useEffect(() => {
+    async function getSongUrl() {
+      if (userData?.favoriteSong?.videoId) {
+        try {
+
+          const songRes = await axios.post(`${baseUrl.localUrl}/get-stream-url`, {
+            videoId: userData?.favoriteSong?.videoId
+          })
+
+          setSongUrl(songRes.data?.audioUrl)
+
+        } catch (error) {
+          console.error(error)
+        }
+      }
+    }
+
+    getSongUrl()
+  }, [userData])
 
   useEffect(() => {
     async function calculateTogheterTime(timestamp) {
@@ -93,6 +116,33 @@ export default function ExibitionPage({
         </h1>
         <p className="text-lg font-medium">Juntos á</p>
         <p className="font-bold italic text-xl">{coupleHistory}</p>
+
+        <div>
+          {
+            userData?.favoriteSong && (
+              <div>
+                <div className="flex justify-center mt-4">
+                  <div className="border-2  w-[180px] rounded-md px-2 shadow-lg flex justify-center items-center">
+                    <img src="/song.svg" className="w-[15px]" alt="" />
+                    <p className="ml-1 whitespace-nowrap overflow-hidden text-ellipsis font-semibold">
+                      {userData?.favoriteSong?.title}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center justify-center">
+                  <audio
+                    autoPlay
+                    loop
+                    src={songUrl}
+                  >
+                  </audio>
+                </div>
+              </div>
+            )
+          }
+        </div>
+
+
 
         <div className="mt-[50%] p-4 relative">
 

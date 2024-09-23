@@ -56,26 +56,26 @@
     ],
     "goals": [],
     "subscription": "YEARLY_DEFAULT",
-    "description": "Casal Dorama",
+    "description": "Meus Olhinhos de Mel",
     "favoriteSong": {
       "type": "video",
-      "videoId": "NzrHC1pgdXE",
-      "url": "https://youtube.com/watch?v=NzrHC1pgdXE",
-      "title": "Perlla - Totalmente Demais",
-      "description": "Faixa 3 do álbum \"Eu Só Quero Ser Livre\".",
-      "image": "https://i.ytimg.com/vi/NzrHC1pgdXE/hq720.jpg",
-      "thumbnail": "https://i.ytimg.com/vi/NzrHC1pgdXE/hq720.jpg",
-      "seconds": 185,
-      "timestamp": "3:05",
+      "videoId": "k05i8bT_Pkg",
+      "url": "https://youtube.com/watch?v=k05i8bT_Pkg",
+      "title": "Clau, Cortesia Da Casa, Haikaiss - Pouca Pausa",
+      "description": "Pouca Pausa (Philipe Tangi / Renato Sheik / Neobeats / Spvic / Pedro Qualy) Você diz que não mas na hora da emoção é pouca ...",
+      "image": "https://i.ytimg.com/vi/k05i8bT_Pkg/hq720.jpg",
+      "thumbnail": "https://i.ytimg.com/vi/k05i8bT_Pkg/hq720.jpg",
+      "seconds": 286,
+      "timestamp": "4:46",
       "duration": {
-        "seconds": 185,
-        "timestamp": "3:05"
+        "seconds": 286,
+        "timestamp": "4:46"
       },
-      "ago": "8 years ago",
-      "views": 1067354,
+      "ago": "6 years ago",
+      "views": 133270663,
       "author": {
-        "name": "Deck",
-        "url": "https://youtube.com/@Deckdisc"
+        "name": "Clau",
+        "url": "https://youtube.com/channel/UClOe2K3dK0ppSIWt_lGYmZQ"
       }
     }
   }
