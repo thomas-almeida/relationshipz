@@ -132,7 +132,7 @@ export default function LandingPage() {
                         </div>
                         <div className="border-4 rounded-md my-2 p-2">
                             <h3 className="text-xl font-bold pb-2">Como recebo minha página personalzada</h3>
-                            <p className="font-semibold">O processo é automático, após realizar o pagamento, voce é redirecionado á sua página para  personalizar seu site e recebe um email com o QR Code do site para imprimir se quiser</p>
+                            <p className="font-semibold">O processo é automático, após realizar o pagamento, você é redirecionado á sua página para  personalizar seu site e recebe um email com o QR Code do site para imprimir se quiser</p>
                         </div>
                         <div className="border-4 rounded-md my-2 p-2">
                             <h3 className="text-xl font-bold pb-2">A Página tem validade?</h3>

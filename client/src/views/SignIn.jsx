@@ -80,7 +80,7 @@ export default function SignIn() {
                                 value="Entrar"
                             />
                             <p className="text-center mt-4">
-                                <p>Ainda não tem o site de voces?,</p>
+                                <p>Ainda não tem o site de vocês?,</p>
                                 <NavLink to={"/"}>
                                     <b className="font-semibold text-[#EA2DA0]"> crie o seu site agora!</b>
                                 </NavLink>
