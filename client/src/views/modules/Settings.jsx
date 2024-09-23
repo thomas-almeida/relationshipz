@@ -156,7 +156,7 @@ export default function Settings({
 
           <div className="flex justify-start items-center">
             <p className="font-medium pr-2 text-xl">
-              Fotos
+              📷 Fotos
             </p>
             <p className="font-medium text-xl w-[30px] text-center rounded-md border-2 shadow-sm bg-white">
               {userData?.photos?.length}
@@ -209,7 +209,7 @@ export default function Settings({
 
         <div className="mt-6 border-2 py-2 rounded-md px-4 bg-white">
           <p className="font-medium pr-2 text-xl">
-            Mensagem Principal
+            ✉️ Mensagem Principal
           </p>
           <input
             type="text"
@@ -221,7 +221,7 @@ export default function Settings({
 
         <div className="mt-6 border-2 py-2 rounded-md px-4 bg-white">
           <p className="font-medium pr-2 text-xl">
-            Música de Fundo
+            🎵 Música de Fundo
           </p>
           <div className="relative flex items-center mt-4 border-2 p-2 rounded-md ">
             <input
@@ -273,7 +273,7 @@ export default function Settings({
 
         <div className="mt-4 border-2 py-2 rounded-md px-4 bg-white">
           <p className="font-medium pr-2 text-xl">
-            Início do Namoro
+           📅 Início do Namoro
           </p>
           <input
             type="date"
@@ -288,7 +288,7 @@ export default function Settings({
             className="py-3 w-[100%] rounded-sm text-[#EA2DA0] border-[#EA2DA0] border-2 font-medium text-xl"
             onClick={() => saveUserSettings()}
           >
-            Salvar Alterações
+            💾 Salvar Alterações
           </button>
 
           <button
