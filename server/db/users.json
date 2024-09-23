@@ -57,6 +57,26 @@
     "goals": [],
     "subscription": "YEARLY_DEFAULT",
     "description": "Casal Dorama",
-    "favoriteSong": ""
+    "favoriteSong": {
+      "type": "video",
+      "videoId": "NzrHC1pgdXE",
+      "url": "https://youtube.com/watch?v=NzrHC1pgdXE",
+      "title": "Perlla - Totalmente Demais",
+      "description": "Faixa 3 do álbum \"Eu Só Quero Ser Livre\".",
+      "image": "https://i.ytimg.com/vi/NzrHC1pgdXE/hq720.jpg",
+      "thumbnail": "https://i.ytimg.com/vi/NzrHC1pgdXE/hq720.jpg",
+      "seconds": 185,
+      "timestamp": "3:05",
+      "duration": {
+        "seconds": 185,
+        "timestamp": "3:05"
+      },
+      "ago": "8 years ago",
+      "views": 1067354,
+      "author": {
+        "name": "Deck",
+        "url": "https://youtube.com/@Deckdisc"
+      }
+    }
   }
 ]

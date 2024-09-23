@@ -4,6 +4,7 @@ import userController from '../controllers/userController.js'
 import coupleController from "../controllers/coupleController.js"
 import paymentController from "../controllers/paymentController.js"
 import emailController from "../controllers/emailController.js"
+import musicController from "../controllers/musicController.js"
 
 const api = Router()
 
@@ -26,5 +27,9 @@ api.post('/create-checkout-intent', paymentController.createPaymentLink)
 
 //Email
 api.post('/send-email', emailController.sendEmail)
+
+//Music
+api.get('/search-song/:userId/:theme', musicController.serchSong)
+api.post('/get-stream-url', musicController.getStreamUrl)
 
 export default api
