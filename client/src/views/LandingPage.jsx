@@ -144,7 +144,7 @@ export default function LandingPage() {
                         </div>
                         <div className="border-4 rounded-md my-2 p-2">
                             <h3 className="text-xl font-bold pb-2">Como funciona o suporte</h3>
-                            <p className="font-semibold">Basta enviar uma <a href="#" className="text-[#04AA28]">mensagem por aqui</a>, e vamos te atender o mais rápido possível para esclarecer e sanar quaisquer dúvidas</p>
+                            <p className="font-semibold">Basta enviar uma <a href="https://wa.link/biqgaf" target="_blank" className="text-[#04AA28]">mensagem por aqui</a>, e vamos te atender o mais rápido possível para esclarecer e sanar quaisquer dúvidas</p>
                         </div>
                         <button
                             className="rounded-md shadow-md py-3 px-4 text-lg w-[80%] bg-[#EA2DA0] my-2 mt-4 text-white font-semibold"

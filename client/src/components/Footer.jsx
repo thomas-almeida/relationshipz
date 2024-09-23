@@ -11,8 +11,9 @@ export default function Footer() {
                     <p className="font-semibold">
                         Feito por                        
                         <a
-                            href="#"
-                            className="text-[#EA2DA0]"
+                            href="https://www.instagram.com/nego.thomm/"
+                            target="_blank"
+                            className="text-[#EA2DA0] ml-1"
                         >
                             Thomas Almeida
                         </a>
