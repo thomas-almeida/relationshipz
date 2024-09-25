@@ -18,8 +18,8 @@ async function createPaymentLink(req, res) {
                 },
             ],
             mode: 'subscription',
-            success_url: 'http://localhost:5173/sign-up?paid=true',
-            cancel_url: 'http://localhost:5173/',
+            success_url: 'https://goals-three.vercel.app/sign-up?paid=true',
+            cancel_url: 'https://goals-three.vercel.app/',
         })
 
         res.json({
