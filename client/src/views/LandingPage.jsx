@@ -2,8 +2,13 @@ import { NavLink } from "react-router-dom";
 import Footer from "../components/Footer";
 import axios from "axios"
 import baseUrl from '../utils/baseUrl.js'
+import { useEffect } from "react";
 
 export default function LandingPage() {
+
+    useEffect(() => {
+        localStorage.clear()
+    }, [])
 
     async function generatePaymentIntent() {
 
