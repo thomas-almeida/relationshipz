@@ -126,7 +126,11 @@ export default function Settings({
   async function searchSong() {
     try {
 
-      const response = await axios.get(`${baseUrl.productionUrl}/search-song/${userData?.id}/${favoriteSong}`)
+      const response = await axios.get(`${baseUrl.productionUrl}/search-song/${userData?.id}/${favoriteSong}`, {
+        headers: {
+          "ngrok-skip-browser-warning": "true"
+        }
+      })
       setSongInfo(response.data?.song)
       refreshUserData()
 
@@ -273,7 +277,7 @@ export default function Settings({
 
         <div className="mt-4 border-2 py-2 rounded-md px-4 bg-white">
           <p className="font-medium pr-2 text-xl">
-           📅 Início do Namoro
+            📅 Início do Namoro
           </p>
           <input
             type="date"
