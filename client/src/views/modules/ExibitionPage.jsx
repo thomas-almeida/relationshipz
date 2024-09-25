@@ -49,15 +49,24 @@ export default function ExibitionPage({
   }, [])
 
   useEffect(() => {
-    async function getSongUrl() {
+
+    async function getSongMP3() {
       if (userData?.favoriteSong?.videoId) {
         try {
+          const response = await axios.post(
+            `${baseUrl.productionUrl}/get-stream-mp3`,
+            {
+              videoId: userData?.favoriteSong?.videoId
+            },
+            {
+              headers: {
+                "Access-Control-Allow-Origin": "*"
+              },
+              responseType: 'blob'
+            })
 
-          const songRes = await axios.post(`${baseUrl.productionUrl}/get-stream-url`, {
-            videoId: userData?.favoriteSong?.videoId
-          })
-
-          setSongUrl(songRes.data?.audioUrl)
+          const audioUrl = URL.createObjectURL(response.data)
+          setSongUrl(audioUrl)
 
         } catch (error) {
           console.error(error)
@@ -65,7 +74,8 @@ export default function ExibitionPage({
       }
     }
 
-    getSongUrl()
+    getSongMP3()
+
   }, [userData])
 
   useEffect(() => {
