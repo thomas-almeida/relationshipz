@@ -31,5 +31,6 @@ api.post('/send-email', emailController.sendEmail)
 //Music
 api.get('/search-song/:userId/:theme', musicController.serchSong)
 api.post('/get-stream-url', musicController.getStreamUrl)
+api.post('/get-stream-mp3', musicController.getStreamMp3)
 
 export default api
