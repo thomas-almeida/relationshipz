@@ -62,18 +62,21 @@ export default function Settings({
     async function getSongMP3() {
       if (userData?.favoriteSong?.videoId) {
         try {
-          const response = await axios.post(`${baseUrl.productionUrl}/get-stream-mp3`,
+          const response = await axios.post(
+            `${baseUrl.productionUrl}/get-stream-mp3`,
             {
               videoId: userData?.favoriteSong?.videoId
             },
             {
               headers: {
                 "Access-Control-Allow-Origin": "*"
-              }
+              },
+              responseType: 'blob'
             })
 
-          setSongInfo(response.data)
-          //console.log(response.data)
+          const audioUrl = URL.createObjectURL(response.data)
+          setSongInfo(audioUrl)
+          console.log(audioUrl)
 
         } catch (error) {
           console.error(error)
