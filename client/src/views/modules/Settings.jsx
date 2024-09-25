@@ -41,9 +41,15 @@ export default function Settings({
     async function getSongUrl() {
       if (userData?.favoriteSong?.videoId) {
         try {
-          const response = await axios.post(`${baseUrl.productionUrl}/get-stream-url`, {
-            videoId: userData?.favoriteSong?.videoId
-          })
+          const response = await axios.post(`${baseUrl.productionUrl}/get-stream-url`,
+            {
+              videoId: userData?.favoriteSong?.videoId
+            },
+            {
+              headers: {
+                "Access-Control-Allow-Origin": "*"
+              }
+            })
 
           setSongInfo(response.data?.audioUrl)
 
@@ -128,7 +134,8 @@ export default function Settings({
 
       const response = await axios.get(`${baseUrl.productionUrl}/search-song/${userData?.id}/${favoriteSong}`, {
         headers: {
-          "ngrok-skip-browser-warning": "true"
+          "ngrok-skip-browser-warning": "true",
+          "Access-Control-Allow-Origin": "*"
         }
       })
       setSongInfo(response.data?.song)
@@ -263,11 +270,16 @@ export default function Settings({
                     </div>
                   </div>
                   <div className="mt-2">
-                    <audio
-                      controls
-                      src={songInfo}
-                    >
-                    </audio>
+                    {
+                      songInfo && (
+                        <audio
+                          controls
+                          src={songInfo}
+                          preload="none"
+                        >
+                        </audio>
+                      )
+                    }
                   </div>
                 </div>
               )

@@ -124,7 +124,10 @@ export default function ExibitionPage({
                 <div className="flex justify-center mt-4">
                   <div className="border-2  w-[180px] rounded-md px-2 shadow-lg flex justify-center items-center">
                     <img src="/song.svg" className="w-[15px]" alt="" />
-                    <p className="ml-1 whitespace-nowrap overflow-hidden text-ellipsis font-semibold">
+                    <p
+                      className="ml-1 whitespace-nowrap overflow-hidden text-ellipsis font-semibold"
+                      onClick={() => document.querySelector('audio').play()}
+                    >
                       {userData?.favoriteSong?.title}
                     </p>
                   </div>
