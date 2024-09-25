@@ -8,12 +8,12 @@ export default function LandingPage() {
     async function generatePaymentIntent() {
 
         const product = {
-            productId: baseUrl.stripeTestYearlyId
+            productId: baseUrl.stripeProdYearlyId
         }
 
         try {
             const response = await axios.post(
-                `${baseUrl.localUrl}/create-checkout-intent`,
+                `${baseUrl.productionUrl}/create-checkout-intent`,
                 product
             )
 

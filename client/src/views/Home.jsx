@@ -11,7 +11,7 @@ export default function Home() {
     async function getUserData() {
         if (localStorage.getItem('userId') !== 'undefined') {
             let userId = localStorage.getItem('userId')
-            const response = await axios.get(`${baseUrl.localUrl}/users/get-user-by-id/${userId}`, {
+            const response = await axios.get(`${baseUrl.productionUrl}/users/get-user-by-id/${userId}`, {
                 headers: {
                     "ngrok-skip-browser-warning": "true"
                 }
