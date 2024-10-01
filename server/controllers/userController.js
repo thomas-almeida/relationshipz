@@ -178,6 +178,7 @@ async function saveSettings(req, res) {
   
       const user = users.find(user => user.id === userId)
       user.description = newMessage
+      user.message = newDescription
       user.beginAt = newBeginAt
 
       fs.writeFileSync(dbPath, JSON.stringify(users, null, 2))
