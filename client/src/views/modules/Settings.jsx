@@ -15,6 +15,7 @@ export default function Settings({
 }) {
 
   const [userMessage, setMessage] = useState('')
+  const [userDescription, setDescription] = useState('')
   const [userBeginAt, setBeginAt] = useState('')
   const [favoriteSong, setFavoriteSong] = useState('')
   const [songInfo, setSongInfo] = useState('')
@@ -33,6 +34,7 @@ export default function Settings({
 
   useEffect(() => {
     setMessage(userData?.description)
+    setDescription(userData?.message)
     setBeginAt(userData?.beginAt)
   }, [userData?.beginAt, userData?.description])
 
@@ -98,6 +100,7 @@ export default function Settings({
     const payload = {
       userId: userData?.id,
       newMessage: userMessage,
+      newDescription: userDescription,
       newBeginAt: userBeginAt
     }
 
@@ -223,14 +226,29 @@ export default function Settings({
 
         <div className="mt-6 border-2 py-2 rounded-md px-4 bg-white">
           <p className="font-medium pr-2 text-xl">
-            ✉️ Mensagem Principal
+            ✉️ Título da Sua Página
           </p>
           <input
             type="text"
             value={userMessage}
             onChange={(e) => setMessage(e.target.value)}
-            className="outline-none text-4xl pt-4 font-semibold w-[100%]"
+            className="outline-none text-2xl pt-4 font-semibold w-[100%]"
           />
+        </div>
+
+        <div className="mt-6 border-2 py-2 rounded-md px-4 bg-white">
+          <p className="font-medium pr-2 text-xl">
+            ✉️ Deixe uma mensagem
+          </p>
+          <textarea
+            name=""
+            id=""
+            rows={4}
+            value={userDescription}
+            onChange={(e) => setDescription(e.target.value)}
+            className="outline-none text-xl pt-4 font-normal w-[100%]"
+          >
+          </textarea>
         </div>
 
         <div className="mt-6 border-2 py-2 rounded-md px-4 bg-white">

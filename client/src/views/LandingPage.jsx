@@ -118,6 +118,7 @@ export default function LandingPage() {
                                     <li className="">✅ 5 Fotos</li>
                                     <li className="">✅ QR Code</li>
                                     <li className="">✅ Música</li>
+                                    <li className="">✅ Título Pers.</li>
                                     <li className="">✅ Mensagem Pers.</li>
                                 </ul>
                             </div>

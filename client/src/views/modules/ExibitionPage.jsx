@@ -124,14 +124,15 @@ export default function ExibitionPage({
         <h1 className="text-5xl italic font-bold py-8">
           {`${userData?.description}`}
         </h1>
-        <p className="text-lg font-medium">Juntos á</p>
-        <p className="font-bold italic text-xl">{coupleHistory}</p>
+        <h2 className="font-semibold text-gray-500 text-center px-12 mb-6">
+          {`${userData?.message}`}
+        </h2>
 
         <div>
           {
             userData?.favoriteSong && (
               <div>
-                <div className="flex justify-center mt-4">
+                <div className="flex justify-center mt-4 mb-4">
                   <div className="border-2  w-[180px] rounded-md px-2 shadow-lg flex justify-center items-center">
                     <img src="/song.svg" className="w-[15px]" alt="" />
                     <p
@@ -155,7 +156,8 @@ export default function ExibitionPage({
           }
         </div>
 
-
+        <p className="text-lg font-medium">Juntos á</p>
+        <p className="font-bold italic text-xl">{coupleHistory}</p>
 
         <div className="mt-[50%] p-4 relative">
 
