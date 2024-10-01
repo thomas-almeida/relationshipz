@@ -169,7 +169,7 @@ async function saveSettings(req, res) {
     users = data ? JSON.parse(data) : []
 
     try {
-      const {userId, newMessage, newBeginAt} = req.body
+      const {userId, newMessage, newDescription, newBeginAt} = req.body
       const userExist = users.some(user => user.id === userId)
 
       if (!userExist) {
@@ -185,6 +185,7 @@ async function saveSettings(req, res) {
       return res.status(201).json({
         message: 'success',
         newMessage: newMessage,
+        newDescription: newDescription,
         newBeginAt: newBeginAt
       })
 
