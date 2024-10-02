@@ -44,7 +44,7 @@ export default function Settings({
       if (userData?.favoriteSong?.videoId) {
         try {
           const response = await axios.post(
-            `${baseUrl.productionUrlFIX}/get-stream-mp3`,
+            `${baseUrl.productionUrl}/get-stream-mp3`,
             {
               videoId: userData?.favoriteSong?.videoId
             },
@@ -80,7 +80,7 @@ export default function Settings({
 
     try {
 
-      await axios.post(`${baseUrl.productionUrlFIX}/users/upload-photo`, formData, {
+      await axios.post(`${baseUrl.productionUrl}/users/upload-photo`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         }
@@ -105,7 +105,7 @@ export default function Settings({
     }
 
     try {
-      await axios.post(`${baseUrl.productionUrlFIX}/users/save-settings`, payload)
+      await axios.post(`${baseUrl.productionUrl}/users/save-settings`, payload)
       refreshUserData()
     } catch (error) {
       console.error(error)
@@ -126,7 +126,7 @@ export default function Settings({
 
     try {
 
-      await axios.post(`${baseUrl.productionUrlFIX}/users/remove-photo`, payload)
+      await axios.post(`${baseUrl.productionUrl}/users/remove-photo`, payload)
       alert('foto removida com sucesso')
       refreshUserData()
 
@@ -138,7 +138,7 @@ export default function Settings({
   async function searchSong() {
     try {
 
-      const response = await axios.get(`${baseUrl.productionUrlFIX}/search-song/${userData?.id}/${favoriteSong}`, {
+      const response = await axios.get(`${baseUrl.productionUrl}/search-song/${userData?.id}/${favoriteSong}`, {
         headers: {
           "ngrok-skip-browser-warning": "true",
           "Access-Control-Allow-Origin": "*"

@@ -18,7 +18,7 @@ export default function LandingPage() {
 
         try {
             const response = await axios.post(
-                `${baseUrl.productionUrlFIX}/create-checkout-intent`,
+                `${baseUrl.productionUrl}/create-checkout-intent`,
                 product
             )
 

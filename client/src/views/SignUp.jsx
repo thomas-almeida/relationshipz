@@ -48,13 +48,13 @@ export default function SignUp() {
         try {
 
             // store user and advance to upload photos
-            const response = await axios.post(`${baseUrl.productionUrlFIX}/users/sign-up`, userPayload)
+            const response = await axios.post(`${baseUrl.productionUrl}/users/sign-up`, userPayload)
             localStorage.setItem('userId', response.data?.id)
             localStorage.setItem('userData', JSON.stringify(response.data))
             localStorage.setItem('userLogged', true)
 
             //sending email
-            await axios.post(`${baseUrl.productionUrlFIX}/send-email`, {
+            await axios.post(`${baseUrl.productionUrl}/send-email`, {
                 email: email,
                 link: `https://goals-three.vercel.app/home?id=${response.data?.id}`
             })

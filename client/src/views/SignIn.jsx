@@ -31,7 +31,7 @@ export default function SignIn() {
 
         try {
 
-            const response = await axios.post(`${baseUrl.productionUrlFIX}/users/sign-in`, userPayload)
+            const response = await axios.post(`${baseUrl.productionUrl}/users/sign-in`, userPayload)
             localStorage.setItem('userId', response.data.user?.id)
             localStorage.setItem('userLogged', 'true')
             localStorage.setItem('userData', JSON.stringify(response.data?.user))

@@ -19,52 +19,7 @@
     },
     "beginAt": "2023-01-21",
     "password": "rstuvw",
-    "photos": [
-      {
-        "filename": "IMG-20240421-WA0104.jpg",
-        "driveId": "1dbZJ5N3TQlrv2m84onuns0munlCeTKjb",
-        "directLink": "https://drive.google.com/thumbnail?id=1dbZJ5N3TQlrv2m84onuns0munlCeTKjb",
-        "webViewLink": "https://drive.google.com/file/d/1dbZJ5N3TQlrv2m84onuns0munlCeTKjb/view?usp=drivesdk",
-        "webContentLink": "https://drive.google.com/uc?id=1dbZJ5N3TQlrv2m84onuns0munlCeTKjb&export=download",
-        "originalname": "IMG-20240421-WA0104.jpg",
-        "mimetype": "image/jpeg",
-        "size": 209814,
-        "ownerId": "ruekum220"
-      },
-      {
-        "filename": "IMG-20240701-WA0154.jpg",
-        "driveId": "146QRMDdr5X0lCc76105tKMtWQZP8SqON",
-        "directLink": "https://drive.google.com/thumbnail?id=146QRMDdr5X0lCc76105tKMtWQZP8SqON",
-        "webViewLink": "https://drive.google.com/file/d/146QRMDdr5X0lCc76105tKMtWQZP8SqON/view?usp=drivesdk",
-        "webContentLink": "https://drive.google.com/uc?id=146QRMDdr5X0lCc76105tKMtWQZP8SqON&export=download",
-        "originalname": "IMG-20240701-WA0154.jpg",
-        "mimetype": "image/jpeg",
-        "size": 245738,
-        "ownerId": "ruekum220"
-      },
-      {
-        "filename": "IMG-20240728-WA0092.jpg",
-        "driveId": "15j-g_1QMCeUSjJ5XF0FYLtqTTUqaXBJ7",
-        "directLink": "https://drive.google.com/thumbnail?id=15j-g_1QMCeUSjJ5XF0FYLtqTTUqaXBJ7",
-        "webViewLink": "https://drive.google.com/file/d/15j-g_1QMCeUSjJ5XF0FYLtqTTUqaXBJ7/view?usp=drivesdk",
-        "webContentLink": "https://drive.google.com/uc?id=15j-g_1QMCeUSjJ5XF0FYLtqTTUqaXBJ7&export=download",
-        "originalname": "IMG-20240728-WA0092.jpg",
-        "mimetype": "image/jpeg",
-        "size": 138018,
-        "ownerId": "ruekum220"
-      },
-      {
-        "filename": "IMG-20240623-WA0026.jpg",
-        "driveId": "1m4M91pnAJehrEGsi_xrgF_y76OG-OJtk",
-        "directLink": "https://drive.google.com/thumbnail?id=1m4M91pnAJehrEGsi_xrgF_y76OG-OJtk",
-        "webViewLink": "https://drive.google.com/file/d/1m4M91pnAJehrEGsi_xrgF_y76OG-OJtk/view?usp=drivesdk",
-        "webContentLink": "https://drive.google.com/uc?id=1m4M91pnAJehrEGsi_xrgF_y76OG-OJtk&export=download",
-        "originalname": "IMG-20240623-WA0026.jpg",
-        "mimetype": "image/jpeg",
-        "size": 113706,
-        "ownerId": "ruekum220"
-      }
-    ],
+    "photos": [],
     "goals": [],
     "subscription": "YEARLY_DEFAULT",
     "description": "Feliz, Aniversário minha princesa ",

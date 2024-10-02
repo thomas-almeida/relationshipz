@@ -29,7 +29,7 @@ export default function ExibitionPage({
     async function getUserData() {
       if (url.includes('?id')) {
         try {
-          const response = await axios.get(`${baseUrl.productionUrlFIX}/users/get-user-by-id/${urlParams.get('id')}`, {
+          const response = await axios.get(`${baseUrl.productionUrl}/users/get-user-by-id/${urlParams.get('id')}`, {
             headers: {
               "ngrok-skip-browser-warning": "true"
             }
@@ -54,7 +54,7 @@ export default function ExibitionPage({
       if (userData?.favoriteSong?.videoId) {
         try {
           const response = await axios.post(
-            `${baseUrl.productionUrlFIX}/get-stream-mp3`,
+            `${baseUrl.productionUrl}/get-stream-mp3`,
             {
               videoId: userData?.favoriteSong?.videoId
             },
