@@ -1,4 +1,4 @@
-
+import { Analytics } from "@vercel/analytics/react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Home from './views/Home'
 import SignIn from './views/SignIn'
@@ -10,6 +10,7 @@ import TermsAndPolicy from "./views/TermsAndPolicy"
 function App() {
 
   return (
+    <>
     <Router>
       <Routes>
         <Route path='/home' element={<Home />}></Route>
@@ -20,6 +21,8 @@ function App() {
         <Route path='/termos-e-condicoes' element={<TermsAndPolicy />}></Route>
       </Routes>
     </Router>
+    <Analytics/>
+    </>
   )
 }
 
