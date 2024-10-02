@@ -1,6 +1,6 @@
 const localUrl = 'http://localhost:3003'
 const productionUrl = 'https://rodent-moved-morally.ngrok-free.app/backend1'
-const productionUrlFIX = 'https://workable-sloth-strangely.ngrok-free.app/'
+const productionUrlFIX = 'https://workable-sloth-strangely.ngrok-free.app'
 const profielPicPrefix = 'https://scontent-gru1-2.cdninstagram.com/v/t51.2885-19/'
 
 
