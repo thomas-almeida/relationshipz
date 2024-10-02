@@ -21,7 +21,6 @@ function App() {
         <Route path='/termos-e-condicoes' element={<TermsAndPolicy />}></Route>
       </Routes>
     </Router>
-    <Analytics/>
     </>
   )
 }
