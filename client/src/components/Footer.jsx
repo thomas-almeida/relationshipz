@@ -1,4 +1,3 @@
-import { Analytics } from "@vercel/analytics/react"
 export default function Footer() {
     return (
         <>
@@ -24,7 +23,6 @@ export default function Footer() {
                     <a href="/termos-e-condicoes">Veja os Termos e Condições</a>
                 </div>
             </footer>
-            <Analytics/>
         </>
     )
 }
