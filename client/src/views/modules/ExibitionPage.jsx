@@ -74,7 +74,7 @@ export default function ExibitionPage({
       }
     }
 
-    //getSongMP3()
+    getSongMP3()
 
   }, [userData])
 
