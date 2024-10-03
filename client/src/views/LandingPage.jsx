@@ -35,47 +35,49 @@ export default function LandingPage() {
     return (
         <>
             <div className="flex justify-center">
-                <div className="w-[85%] py-4">
-                    <div className="text-center">
-                        <div className="flex justify-center m-2 mb-4">
-                            <p className="border-2 font-semibold w-[80px] rounded-md shadow-sm">
-                                Goals 💕
+                <div className="w-[85%] py-4 lg:w-[55%]">
+                    <div className="lg:flex justify-center items-center">
+                        <div className="text-center lg:text-left">
+                            <div className="flex justify-center m-2 mb-4 lg:justify-start">
+                                <p className="border-2 font-semibold w-[80px] rounded-md shadow-sm text-center">
+                                    Goals 💕
+                                </p>
+                            </div>
+                            <h1 className="text-5xl font-bold py-4">Surpreenda seu Amor</h1>
+                            <p className="font-semibold mt-2 lg:w-[380px]">
+                                Seu relacionamento agora com um site personalizado + um contador ao vivo do tempo de relacionamento com fotos do casal
                             </p>
-                        </div>
-                        <h1 className="text-5xl font-bold py-4">Surpreenda seu Amor</h1>
-                        <p className="font-semibold mt-2">
-                            Seu namoro agora com um site personalizado + um contador ao vivo do tempo de relacionamento com fotos do casal
-                        </p>
 
-                        <button
-                            className="rounded-md shadow-md py-3 px-4 text-lg w-[80%] bg-[#EA2DA0] my-2 mt-4 text-white font-semibold"
-                            onClick={() => generatePaymentIntent()}
-                        >
-                            Criar meu site agora
-                        </button>
-
-                        <br />
-                        <NavLink
-                            to={"/sign-in"}
-                        >
-                            <button className="w-[80%] mt-2 border-2 border-black rounded-md py-3 px-4 text-lg">
-                                <div className="flex justify-center items-center">
-                                    <p className="font-semibold">Já tenho conta</p>
-                                    <img src="/arrow.png" className="relative top-[2px] left-1" alt="" />
-                                </div>
+                            <button
+                                className="rounded-md shadow-md py-3 px-4 text-lg w-[80%] bg-[#EA2DA0] my-2 mt-4 text-white font-semibold transition hover:scale-[1.03]"
+                                onClick={() => generatePaymentIntent()}
+                            >
+                                Criar meu site agora
                             </button>
-                        </NavLink>
-                    </div>
 
-                    <div className="mb-10">
-                        <video
-                            src="/example-vid.mp4"
-                            loop={true}
-                            autoPlay={true}
-                            muted={true}
-                            playsInline={true}
-                        >
-                        </video>
+                            <br />
+                            <NavLink
+                                to={"/sign-in"}
+                            >
+                                <button className="w-[80%] mt-2 border-2 border-black rounded-md py-3 px-4 text-lg hover:border-[#EA2DA0] hover:scale-[1.03]">
+                                    <div className="flex justify-center items-center">
+                                        <p className="font-semibold">Já tenho conta</p>
+                                        <img src="/arrow.png" className="relative top-[2px] left-1" alt="" />
+                                    </div>
+                                </button>
+                            </NavLink>
+                        </div>
+
+                        <div className="mb-10 transition lg:ml-6 lg:w-[450px] hover:scale-[1.03]">
+                            <video
+                                src="/example-vid.mp4"
+                                loop={true}
+                                autoPlay={true}
+                                muted={true}
+                                playsInline={true}
+                            >
+                            </video>
+                        </div>
                     </div>
 
                     <div className="text-center">
@@ -86,23 +88,25 @@ export default function LandingPage() {
                             Ao criar um site do seu relacionamento no Goals 💕 você garante acesso a inserir fotos, música, mensagens e o tempo de relacionamento do casal
                         </p>
 
-                        <div className="border-4 rounded-md my-2 p-2 mt-4">
-                            <h3 className="text-xl font-bold pb-2">1. Pagamento</h3>
-                            <p className="font-semibold">Ao clicar em  <a href="#" className="text-[#EA2DA0]" onClick={() => generatePaymentIntent()}>crie seu site agora</a> você será redirecionado para o pagamento do <b className="font-semibold text-blue-600">Plano Único Anual</b>, após realizar o pagamento você será redirecionado para inserir os dados do site como nome do casal, tempo, mensagem, email e senha de acesso.</p>
-                        </div>
-                        <div className="border-4 rounded-md my-2 p-2">
-                            <h3 className="text-xl font-bold pb-2">2. Dados do Casal</h3>
-                            <p className="font-semibold">Após realizar o pagamento, e ter inserido os dados iniciais do casal, você receberá um email com o QR Code do site e irá para a página de configurações</p>
-                        </div>
-                        <div className="border-4 rounded-md my-2 p-2">
-                            <h3 className="text-xl font-bold pb-2">3. Surpreenda seu Amor</h3>
-                            <p className="font-semibold">Com seu site e QR Code em mãos, insira fotos, edite a mensagem principal, seja livre para personalizar do jeito que quiser e compartilhar seu site com qualquer pessoa!</p>
-                            <button
-                                className="rounded-md shadow-md py-3 px-4 text-lg w-[80%] bg-[#EA2DA0] my-2 mt-4 text-white font-semibold"
-                                onClick={() => generatePaymentIntent()}
-                            >
-                                Criar meu site agora
-                            </button>
+                        <div className="">
+                            <div className="border-4 rounded-md my-2 p-2 mt-4">
+                                <h3 className="text-xl font-bold pb-2">1. Pagamento</h3>
+                                <p className="font-semibold">Ao clicar em  <a href="#" className="text-[#EA2DA0]" onClick={() => generatePaymentIntent()}>crie seu site agora</a> você será redirecionado para o pagamento do <b className="font-semibold text-blue-600">Plano Único Anual</b>, após realizar o pagamento você será redirecionado para inserir os dados do site como nome do casal, tempo, mensagem, email e senha de acesso.</p>
+                            </div>
+                            <div className="border-4 rounded-md my-2 p-2">
+                                <h3 className="text-xl font-bold pb-2">2. Dados do Casal</h3>
+                                <p className="font-semibold">Após realizar o pagamento, e ter inserido os dados iniciais do casal, você receberá um email com o QR Code do site e irá para a página de configurações</p>
+                            </div>
+                            <div className="border-4 rounded-md my-2 p-2">
+                                <h3 className="text-xl font-bold pb-2">3. Surpreenda seu Amor</h3>
+                                <p className="font-semibold">Com seu site e QR Code em mãos, insira fotos, edite a mensagem principal, seja livre para personalizar do jeito que quiser e compartilhar seu site com qualquer pessoa!</p>
+                                <button
+                                    className="rounded-md shadow-md py-3 px-4 text-lg w-[80%] bg-[#EA2DA0] my-2 mt-4 text-white font-semibold"
+                                    onClick={() => generatePaymentIntent()}
+                                >
+                                    Criar meu site agora
+                                </button>
+                            </div>
                         </div>
 
                         <div className="rounded-sm mt-4">
@@ -110,17 +114,20 @@ export default function LandingPage() {
                             <h2 className="text-2xl font-bold">Quanto Custa?</h2>
 
                             <div
-                                className='text-left border-2 p-2 rounded-md my-4 mb-1 w-full relative border-green-400 shadow-md'
+                                className='text-left border-2 p-2 rounded-md my-4 mb-1 w-full relative border-green-400 shadow-md lg:text-center lg:px-20 '
                             >
-                                <h3 className="font-semibold text-lg">Anual, R$29,90</h3>
-                                <p className="text-sm mt-2">Seu site personalizado por um ano, suporte em horário comercial, além de funcionalidades como:</p>
-                                <ul className="p-0 m-0 grid grid-cols-2 mt-2">
-                                    <li className="">✅ 5 Fotos</li>
-                                    <li className="">✅ QR Code</li>
-                                    <li className="">✅ Música</li>
-                                    <li className="">✅ Título Pers.</li>
-                                    <li className="">✅ Mensagem Pers.</li>
-                                </ul>
+                                <h3 className="font-semibold text-lg lg:text-xl">Plano Anual, R$29,90</h3>
+                                <p className="text-sm mt-2 lg:px-20 lg:my-4">Por um lanche do Mec, pague uma única vez para ter seu site personalizado por um ano, suporte em horário comercial, além de funcionalidades como:</p>
+                                <div className="lg:px-28">
+                                    <ul className="p-0 m-0 grid grid-cols-2 mt-2 lg:py-4">
+                                        <li className="text-left">✅ 5 Fotos</li>
+                                        <li className="text-left">✅ QR Code</li>
+                                        <li className="text-left">✅ Música</li>
+                                        <li className="text-left">✅ Título Pers.</li>
+                                        <li className="text-left">✅ Mensagem Pers.</li>
+                                        <li className="text-left">✅ Contador Ao Vivo.</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>

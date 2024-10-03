@@ -154,7 +154,7 @@ export default function Settings({
 
   return (
     <>
-      <div className="w-[85%]">
+      <div className="w-[85%] lg:w-[45%]">
         <div className="flex justify-center m-2 text-center">
           <p className="border-2 font-semibold w-[80px] rounded-md shadow-sm">
             <NavLink to={'/'}>
@@ -190,7 +190,7 @@ export default function Settings({
                   >
                     <img
                       src={photo?.directLink}
-                      className="h-[260px] w-[100%] rounded-md shadow-md shadow-[#0000003a] object-cover"
+                      className="h-[260px] w-[100%] rounded-md shadow-md shadow-[#0000003a] cursor-pointer object-cover transition hover:scale-[1.03]"
                     />
                     <p
                       className="absolute p-2 px-4 rounded-sm bg-[#ffffffc7] right-2 bottom-4 shadow-md flex items-center justify-center"
@@ -297,6 +297,7 @@ export default function Settings({
                           controls
                           src={songInfo}
                           preload="none"
+                          className="w-full"
                         >
                         </audio>
                       )
