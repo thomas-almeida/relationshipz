@@ -193,7 +193,7 @@ export default function Settings({
                       className="h-[260px] w-[100%] rounded-md shadow-md shadow-[#0000003a] cursor-pointer object-cover transition hover:scale-[1.03]"
                     />
                     <p
-                      className="absolute p-2 px-4 rounded-sm bg-[#ffffffc7] right-2 bottom-4 shadow-md flex items-center justify-center"
+                      className="absolute p-2 px-4 rounded-sm bg-[#ffffffc7] right-2 bottom-4 shadow-md flex items-center justify-center cursor-pointer hover:border-4 hover:border-red-600"
                       onClick={() => removePhoto(userData?.id, photo?.driveId)}
                     >
                       <img src="/trash.svg" className="w-[25px]" />
@@ -205,7 +205,7 @@ export default function Settings({
               {
                 userData?.photos.length < 5 && (
                   <div
-                    className="h-[260px] w-[100%] m-2 border-dashed border-slate-500 border-2 rounded-md flex justify-center items-center relative"
+                    className="h-[260px] w-[100%] m-2 border-dashed border-slate-500 border-2 rounded-md flex justify-center items-center relative hover:border-pink-600 hover:text-pink-600"
                   >
                     <p className="text-6xl text-slate-500">+</p>
                     <input
