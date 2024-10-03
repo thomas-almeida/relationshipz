@@ -176,7 +176,7 @@ export default function ExibitionPage({
                   <img
                     key={index}
                     className={`
-                      w-[60%] h-[300px] absolute shadow-lg shadow-[#000000b3] rounded-md transition-all duration-300 ease-in-out hover:scale-[1.02] hover:mx-10 cursor-pointer hover:z-[9999] lg:h-[auto] lg:w-[50%] 
+                      w-[60%] h-[300px] absolute shadow-lg shadow-[#000000b3] rounded-md transition-all duration-300 ease-in-out hover:scale-[1.02] cursor-pointer hover:z-[9999] lg:h-[auto] lg:w-[50%] lg:hover:mx-10 
                       ${
                         index === 0 ? 'top-[0px] left-[45%]' :
                         index === 1 ? 'top-[50px] left-[-5%] object-cover' :
