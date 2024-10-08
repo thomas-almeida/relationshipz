@@ -31,7 +31,7 @@ export default function SignIn() {
 
         try {
 
-            const response = await axios.post(`${baseUrl.productionUrlFIX}/users/sign-in`, userPayload)
+            const response = await axios.post(`${baseUrl.productionUrl}/users/sign-in`, userPayload)
             localStorage.setItem('userId', response.data.user?.id)
             localStorage.setItem('userLogged', 'true')
             localStorage.setItem('userData', JSON.stringify(response.data?.user))
@@ -47,7 +47,7 @@ export default function SignIn() {
     return (
         <>
             <div className="flex justify-center items-center h-screen">
-                <div className="w-[85%]">
+                <div className="w-[85%] lg:w-[45%]">
                     <div className="text-center">
                         <div className="flex justify-center m-2 mb-4">
                             <p className="border-2 font-semibold w-[80px] rounded-md shadow-sm">

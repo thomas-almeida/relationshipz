@@ -44,7 +44,7 @@ export default function Settings({
       if (userData?.favoriteSong?.videoId) {
         try {
           const response = await axios.post(
-            `${baseUrl.productionUrlFIX}/get-stream-mp3`,
+            `${baseUrl.productionUrl}/get-stream-mp3`,
             {
               videoId: userData?.favoriteSong?.videoId
             },
@@ -80,7 +80,7 @@ export default function Settings({
 
     try {
 
-      await axios.post(`${baseUrl.productionUrlFIX}/users/upload-photo`, formData, {
+      await axios.post(`${baseUrl.productionUrl}/users/upload-photo`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         }
@@ -105,7 +105,7 @@ export default function Settings({
     }
 
     try {
-      await axios.post(`${baseUrl.productionUrlFIX}/users/save-settings`, payload)
+      await axios.post(`${baseUrl.productionUrl}/users/save-settings`, payload)
       refreshUserData()
     } catch (error) {
       console.error(error)
@@ -126,7 +126,7 @@ export default function Settings({
 
     try {
 
-      await axios.post(`${baseUrl.productionUrlFIX}/users/remove-photo`, payload)
+      await axios.post(`${baseUrl.productionUrl}/users/remove-photo`, payload)
       alert('foto removida com sucesso')
       refreshUserData()
 
@@ -138,7 +138,7 @@ export default function Settings({
   async function searchSong() {
     try {
 
-      const response = await axios.get(`${baseUrl.productionUrlFIX}/search-song/${userData?.id}/${favoriteSong}`, {
+      const response = await axios.get(`${baseUrl.productionUrl}/search-song/${userData?.id}/${favoriteSong}`, {
         headers: {
           "ngrok-skip-browser-warning": "true",
           "Access-Control-Allow-Origin": "*"
@@ -154,7 +154,7 @@ export default function Settings({
 
   return (
     <>
-      <div className="w-[85%]">
+      <div className="w-[85%] lg:w-[45%]">
         <div className="flex justify-center m-2 text-center">
           <p className="border-2 font-semibold w-[80px] rounded-md shadow-sm">
             <NavLink to={'/'}>
@@ -190,10 +190,10 @@ export default function Settings({
                   >
                     <img
                       src={photo?.directLink}
-                      className="h-[260px] w-[100%] rounded-md shadow-md shadow-[#0000003a] object-cover"
+                      className="h-[260px] w-[100%] rounded-md shadow-md shadow-[#0000003a] cursor-pointer object-cover transition hover:scale-[1.03]"
                     />
                     <p
-                      className="absolute p-2 px-4 rounded-sm bg-[#ffffffc7] right-2 bottom-4 shadow-md flex items-center justify-center"
+                      className="absolute p-2 px-4 rounded-sm bg-[#ffffffc7] right-2 bottom-4 shadow-md flex items-center justify-center cursor-pointer hover:border-4 hover:border-red-600"
                       onClick={() => removePhoto(userData?.id, photo?.driveId)}
                     >
                       <img src="/trash.svg" className="w-[25px]" />
@@ -205,7 +205,7 @@ export default function Settings({
               {
                 userData?.photos.length < 5 && (
                   <div
-                    className="h-[260px] w-[100%] m-2 border-dashed border-slate-500 border-2 rounded-md flex justify-center items-center relative"
+                    className="h-[260px] w-[100%] m-2 border-dashed border-slate-500 border-2 rounded-md flex justify-center items-center relative hover:border-pink-600 hover:text-pink-600"
                   >
                     <p className="text-6xl text-slate-500">+</p>
                     <input
@@ -297,6 +297,7 @@ export default function Settings({
                           controls
                           src={songInfo}
                           preload="none"
+                          className="w-full"
                         >
                         </audio>
                       )

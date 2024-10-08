@@ -48,13 +48,13 @@ export default function SignUp() {
         try {
 
             // store user and advance to upload photos
-            const response = await axios.post(`${baseUrl.productionUrlFIX}/users/sign-up`, userPayload)
+            const response = await axios.post(`${baseUrl.productionUrl}/users/sign-up`, userPayload)
             localStorage.setItem('userId', response.data?.id)
             localStorage.setItem('userData', JSON.stringify(response.data))
             localStorage.setItem('userLogged', true)
 
             //sending email
-            await axios.post(`${baseUrl.productionUrlFIX}/send-email`, {
+            await axios.post(`${baseUrl.productionUrl}/send-email`, {
                 email: email,
                 link: `https://goals-three.vercel.app/home?id=${response.data?.id}`
             })
@@ -73,7 +73,7 @@ export default function SignUp() {
     return (
         <>
             <div className="flex justify-center items-center py-10 overflow-y-auto">
-                <div className="w-[85%]">
+                <div className="w-[85%] lg:w-[45%]">
                     <div className="text-center">
                         <div className="flex justify-center m-2 mb-4">
                             <p className="border-2 font-semibold px-4 py-1 text-white bg-green-500 rounded-md shadow-sm">
@@ -140,7 +140,7 @@ export default function SignUp() {
 
                             <input
                                 type="submit"
-                                className="border w-[100%] my-2 p-3 rounded-sm bg-purple-600 text-white font-medium"
+                                className="border w-[100%] my-2 p-3 rounded-sm bg-[#EA2DA0] text-white font-medium cursor-pointer"
                                 value="Registrar Casal e Prosseguir"
                             />
                         </form>

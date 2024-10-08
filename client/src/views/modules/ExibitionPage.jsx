@@ -29,7 +29,7 @@ export default function ExibitionPage({
     async function getUserData() {
       if (url.includes('?id')) {
         try {
-          const response = await axios.get(`${baseUrl.productionUrlFIX}/users/get-user-by-id/${urlParams.get('id')}`, {
+          const response = await axios.get(`${baseUrl.productionUrl}/users/get-user-by-id/${urlParams.get('id')}`, {
             headers: {
               "ngrok-skip-browser-warning": "true"
             }
@@ -54,7 +54,7 @@ export default function ExibitionPage({
       if (userData?.favoriteSong?.videoId) {
         try {
           const response = await axios.post(
-            `${baseUrl.productionUrlFIX}/get-stream-mp3`,
+            `${baseUrl.productionUrl}/get-stream-mp3`,
             {
               videoId: userData?.favoriteSong?.videoId
             },
@@ -106,7 +106,7 @@ export default function ExibitionPage({
   return (
 
     <div className="flex justify-center items-center bg-white">
-      <div className="text-center w-[95%]">
+      <div className="text-center w-[95%] lg:w-[40%]">
 
         <p className="mt-6">
           Feito com
@@ -159,7 +159,7 @@ export default function ExibitionPage({
         <p className="text-lg font-medium">Juntos á</p>
         <p className="font-bold italic text-xl">{coupleHistory}</p>
 
-        <div className="mt-[50%] p-4 relative">
+        <div className="mt-[2%] p-4 relative lg:mt-[5%]">
 
           {
             userData?.photos?.length <= 0 && (
@@ -169,24 +169,28 @@ export default function ExibitionPage({
             )
           }
 
-
-          {
-            userData?.photos?.map((photo, index) => (
-              <LazyLoad once>
-                <img
-                  key={index}
-                  className={`absolute shadow-lg shadow-[#000000b3] rounded-md transition-all duration-300 ease-in-out w-[50%] hover:scale-[1.2] hover:z-[9999] ${index === 0 ? 'top-[-120px] left-[40%]' :
-                    index === 1 ? 'top-[-55px] left-[0%] h-[260px] object-cover' :
-                      index === 2 ? 'top-[40px] left-[50%]' :
-                        index === 3 ? 'top-[195px] left-[15%]' :
-                          'top-[180px] left-[45%] h-[180px] object-cover'
-                    }`}
-                  src={`${photo.directLink}`}
-                >
-                </img>
-              </LazyLoad>
-            ))
-          }
+          <div className="relative">
+            {
+              userData?.photos?.map((photo, index) => (
+                <LazyLoad once>
+                  <img
+                    key={index}
+                    className={`
+                      w-[60%] h-[300px] absolute shadow-lg shadow-[#000000b3] rounded-md transition-all duration-300 ease-in-out hover:scale-[1.02] cursor-pointer hover:z-[9999] lg:h-[auto] lg:w-[50%] lg:hover:mx-10 
+                      ${
+                        index === 0 ? 'top-[0px] left-[45%]' :
+                        index === 1 ? 'top-[50px] left-[-5%] object-cover' :
+                        index === 2 ? 'top-[200px] left-[42%]' :
+                        index === 3 ? 'top-[300px] left-[0%]' :
+                      'top-[400px] left-[40%] object-cover'
+                      }`}
+                    src={`${photo.directLink}`}
+                  >
+                  </img>
+                </LazyLoad>
+              ))
+            }
+          </div>
 
         </div>
 
