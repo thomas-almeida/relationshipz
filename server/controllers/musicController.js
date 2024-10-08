@@ -4,10 +4,10 @@ import fs from 'fs'
 import ytdl from '@distube/ytdl-core'
 import yt from 'yt-search'
 import ffmpeg from 'fluent-ffmpeg'
-//import ffmpegPath from 'ffmpeg-static'
+import ffmpegPath from 'ffmpeg-static'
 import { Readable } from 'stream'
 
-ffmpeg.setFfmpegPath('/usr/bin/ffmpeg')
+ffmpeg.setFfmpegPath(ffmpegPath)
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
